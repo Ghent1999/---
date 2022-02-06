@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./page/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HistoryPage from "./page/History";
+import DataImage from "./page/DataImage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/history" element={<HistoryPage />}></Route>
+            <Route path="/data-image" element={<DataImage />}></Route>
           </Routes>
         </BrowserRouter>
         <Footer />

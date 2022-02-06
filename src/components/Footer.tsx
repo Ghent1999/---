@@ -7,9 +7,7 @@ export default function Footer() {
             <div className="col-sm-5">
               <img src="assets/images/logo.svg" className="footer-logo" />
               <h5 className="font-weight-normal mt-4 mb-5">
-                Newspaper is your news, entertainment, music fashion website. We
-                provide you with the latest breaking news and videos straight
-                from the entertainment industry.
+                <img src="assets/images/Cow.png" alt="" />
               </h5>
               <ul className="social-media mb-3">
                 <li>

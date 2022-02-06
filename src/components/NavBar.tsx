@@ -1,21 +1,10 @@
-import { useNavigate } from "react-router-dom";
-
 export default function NavBar() {
-  const navigate = useNavigate();
-  function navigationHistory() {
-    navigate("/history");
-  }
   return (
     <header id="header">
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="navbar-bottom">
             <div className="d-flex justify-content-between align-items-center">
-              <div className="mt-4">
-                <a className="navbar-brand" href="">
-                  <img src="assets/images/Cow.png" alt="" />
-                </a>
-              </div>
               <div className="mt-4">
                 <button
                   className="navbar-toggler"
@@ -38,16 +27,12 @@ export default function NavBar() {
                       </button>
                     </li>
                     <li className="nav-item active">
-                      <a className="nav-link" href="index.html">
+                      <a className="nav-link" href="/">
                         Home
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        type="button"
-                        onClick={navigationHistory}
-                      >
+                      <a className="nav-link" type="button" href="/history">
                         History
                       </a>
                     </li>
@@ -80,8 +65,13 @@ export default function NavBar() {
                       </div>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="pages/contactus.html">
+                      <a className="nav-link" href="/">
                         Contact
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/data-image">
+                        Data image
                       </a>
                     </li>
                   </ul>
