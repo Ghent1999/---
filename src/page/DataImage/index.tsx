@@ -39,23 +39,13 @@ export default function DataImage() {
                 <div className="col-md-12">
                   <select className="form-select mt-3" required>
                     <option selected hidden>
-                      พันธุ์วัว
+                      ลักษณะกายภาพ
                     </option>
-                    {/* ตัวเลือกพันธุ์วัว */}
-                    <option value="โคพื้นเมือง">โคพื้นเมือง</option>
-                    <option value="โคพันธุ์บราห์มัน">โคพันธุ์บราห์มัน</option>
-                    <option value="โคพันธุ์ซิมเมนทัล">โคพันธุ์ซิมเมนทัล</option>
-                    <option value="โคพันธุ์ตาก">โคพันธุ์ตาก</option>
-                    <option value="โคพันธุ์กำแพงแสน">โคพันธุ์กำแพงแสน</option>
-                    <option value="โคพันธุ์กบินทร์บุรี">
-                      โคพันธุ์กบินทร์บุรี
-                    </option>
-                    <option value="โคพันธุ์เดร้าท์มาสเตอร์">
-                      โคพันธุ์เดร้าท์มาสเตอร์
-                    </option>
-                    <option value="โคพันธุ์ฮินดูบราซิล">
-                      โคพันธุ์ฮินดูบราซิล
-                    </option>
+                    <option value="จมูกวัว">จมูกวัว</option>
+                    <option value="ลายข้างวัวซ้าย">ลายข้างวัวซ้าย</option>
+                    <option value="ลายข้างวัวขวา">ลายข้างวัวขวา</option>
+                    <option value="บั้นท้าย">บั้นท้าย</option>
+                    <option value="อุจระ">อุจระ</option>
                   </select>
                   <div className="valid-feedback">You selected a position!</div>
                   <div className="invalid-feedback">

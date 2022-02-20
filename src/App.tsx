@@ -4,6 +4,7 @@ import HomePage from "./page/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HistoryPage from "./page/History";
 import DataImage from "./page/DataImage";
+import Gallery from "./page/Gallery";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/history" element={<HistoryPage />}></Route>
             <Route path="/data-image" element={<DataImage />}></Route>
+            <Route path="/gallery" element={<Gallery />}></Route>
           </Routes>
         </BrowserRouter>
         <Footer />

@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
+import "./Home.css";
+
 export default function HomePage() {
   return (
     <div className="content-wrapper">
@@ -75,557 +78,237 @@ export default function HomePage() {
         <div className="row" data-aos="fade-up">
           <div className="col-lg-3 stretch-card grid-margin">
             <div className="card">
+              <div className="card-header bg-primary">
+                <h3 className="text-white">Category</h3>
+              </div>
               <div className="card-body">
-                <h2>Category</h2>
                 <ul className="vertical-menu">
                   <li>
-                    <a href="#">Politics</a>
+                    <a
+                      href="https://chainat.chandra.ac.th/index.php/2015-12-22-05-02-29"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      ประวัติศูนย์การเรียนรู้โคจันทรเกษมชัยนาท
+                    </a>
                   </li>
                   <li>
-                    <a href="#">International</a>
+                    <a
+                      href="https://eregist.dld.go.th"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      ลงทะเบียนโค
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Finance</a>
-                  </li>
-                  <li>
-                    <a href="#">Health care</a>
-                  </li>
-                  <li>
-                    <a href="#">Technology</a>
-                  </li>
-                  <li>
-                    <a href="#">Jobs</a>
-                  </li>
-                  <li>
-                    <a href="#">Media</a>
-                  </li>
-                  <li>
-                    <a href="#">Administration</a>
-                  </li>
-                  <li>
-                    <a href="#">Sports</a>
-                  </li>
-                  <li>
-                    <a href="#">Game</a>
-                  </li>
-                  <li>
-                    <a href="#">Art</a>
-                  </li>
-                  <li>
-                    <a href="#">Kids</a>
+                    <a
+                      href="https://chainat.chandra.ac.th/images/Documents/2563/pomelo-cruc.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      ส้มโอขาวแตงกวา
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           <div className="col-lg-9 stretch-card grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-4 grid-margin">
-                    <div className="position-relative">
-                      <div className="rotate-img">
-                        <img
-                          src="assets/images/dashboard/home_4.jpg"
-                          alt="thumb"
-                          className="img-fluid"
-                        />
-                      </div>
-                      <div className="badge-positioned">
-                        <span className="badge badge-danger font-weight-bold">
-                          Flash news
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-8  grid-margin">
-                    <h2 className="mb-2 font-weight-600">
-                      South Korea’s Moon Jae-in sworn in vowing to address North
-                    </h2>
-                    <div className="fs-13 mb-2">
-                      <span className="mr-2">Photo </span>10 Minutes ago
-                    </div>
-                    <p className="mb-0">
-                      Lorem Ipsum has been the industry's standard dummy text
-                      ever since the 1500s, when an
-                    </p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-4 grid-margin">
-                    <div className="position-relative">
-                      <div className="rotate-img">
-                        <img
-                          src="assets/images/dashboard/home_5.jpg"
-                          alt="thumb"
-                          className="img-fluid"
-                        />
-                      </div>
-                      <div className="badge-positioned">
-                        <span className="badge badge-danger font-weight-bold">
-                          Flash news
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-8  grid-margin">
-                    <h2 className="mb-2 font-weight-600">
-                      No charges over 2017 Conservative battle bus cases
-                    </h2>
-                    <div className="fs-13 mb-2">
-                      <span className="mr-2">Photo </span>10 Minutes ago
-                    </div>
-                    <p className="mb-0">
-                      Lorem Ipsum has been the industry's standard dummy text
-                      ever since the 1500s, when an
-                    </p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-4">
-                    <div className="position-relative">
-                      <div className="rotate-img">
-                        <img
-                          src="assets/images/dashboard/home_6.jpg"
-                          alt="thumb"
-                          className="img-fluid"
-                        />
-                      </div>
-                      <div className="badge-positioned">
-                        <span className="badge badge-danger font-weight-bold">
-                          Flash news
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-8">
-                    <h2 className="mb-2 font-weight-600">
-                      Kaine: Trump Jr. may have committed treason
-                    </h2>
-                    <div className="fs-13 mb-2">
-                      <span className="mr-2">Photo </span>10 Minutes ago
-                    </div>
-                    <p className="mb-0">
-                      Lorem Ipsum has been the industry's standard dummy text
-                      ever since the 1500s, when an
-                    </p>
-                  </div>
-                </div>
+            <div className="card scroll">
+              <div className="card-header bg-primary">
+                <h3 className="text-white">ข่าวประชาสัมพันธ์</h3>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="row" data-aos="fade-up">
-          <div className="col-sm-12 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-lg-8">
-                    <div className="card-title">Video</div>
-                    <div className="row">
-                      <div className="col-sm-6 grid-margin">
-                        <div className="position-relative">
-                          <div className="rotate-img">
-                            <img
-                              src="assets/images/dashboard/home_7.jpg"
-                              alt="thumb"
-                              className="img-fluid"
-                            />
-                          </div>
-                          <div className="badge-positioned w-90">
-                            <div className="d-flex justify-content-between align-items-center">
-                              <span className="badge badge-danger font-weight-bold">
-                                Lifestyle
-                              </span>
-                              <div className="video-icon">
-                                <i className="mdi mdi-play" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-6 grid-margin">
-                        <div className="position-relative">
-                          <div className="rotate-img">
-                            <img
-                              src="assets/images/dashboard/home_8.jpg"
-                              alt="thumb"
-                              className="img-fluid"
-                            />
-                          </div>
-                          <div className="badge-positioned w-90">
-                            <div className="d-flex justify-content-between align-items-center">
-                              <span className="badge badge-danger font-weight-bold">
-                                National News
-                              </span>
-                              <div className="video-icon">
-                                <i className="mdi mdi-play" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-6 grid-margin">
-                        <div className="position-relative">
-                          <div className="rotate-img">
-                            <img
-                              src="assets/images/dashboard/home_9.jpg"
-                              alt="thumb"
-                              className="img-fluid"
-                            />
-                          </div>
-                          <div className="badge-positioned w-90">
-                            <div className="d-flex justify-content-between align-items-center">
-                              <span className="badge badge-danger font-weight-bold">
-                                Lifestyle
-                              </span>
-                              <div className="video-icon">
-                                <i className="mdi mdi-play" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-6 grid-margin">
-                        <div className="position-relative">
-                          <div className="rotate-img">
-                            <img
-                              src="assets/images/dashboard/home_10.jpg"
-                              alt="thumb"
-                              className="img-fluid"
-                            />
-                          </div>
-                          <div className="badge-positioned w-90">
-                            <div className="d-flex justify-content-between align-items-center">
-                              <span className="badge badge-danger font-weight-bold">
-                                National News
-                              </span>
-                              <div className="video-icon">
-                                <i className="mdi mdi-play" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+              <div className="card-body ">
+                <div className="row ">
+                  <div className="col-sm-12 grid-margin">
+                    <h2 className="mb-2 font-weight-600">
+                      โครงการส่งเสริมการจ้างงานใหม่สำหรับผู้จบการศึกษาใหม่โดยภาครัฐและเอกชน
+                      (Co-payment)
+                    </h2>
+                    <div className="fs-13 mb-2 text-right">
+                      <a
+                        href="https://chainat.chandra.ac.th/images/doc2021/032.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="mb-0 btn btn-primary col-3">
+                          อ่าน
+                        </button>
+                      </a>
                     </div>
                   </div>
-                  <div className="col-lg-4">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="card-title">Latest Video</div>
-                      <p className="mb-3">See all</p>
+                </div>
+                <div className="row">
+                  <div className="col-sm-12 grid-margin">
+                    <h2 className="mb-2 font-weight-600">
+                      โครงการ ลุ้นโชค " ช่วยผู้ปกครอง รับค่าเทอมนักศึกษา สูงสุด
+                      5,000 บาท (ห้าพันบาทถ้วน) "
+                      สำหรับนักศึกษาชำระค่าเทอมช่องทางผ่านธนาคารกรุงศรี
+                    </h2>
+                    <div className="fs-13 mb-2 text-right">
+                      <a
+                        href="https://op.chandra.ac.th/finance/images/file/news/2563/10/N29102563_01.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="mb-0 btn btn-primary col-3">
+                          อ่าน
+                        </button>
+                      </a>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center border-bottom pb-2">
-                      <div className="div-w-80 mr-3">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_11.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                      </div>
-                      <h3 className="font-weight-600 mb-0">
-                        Apple Introduces Apple Watch
-                      </h3>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-12 grid-margin">
+                    <h2 className="mb-2 font-weight-600">
+                      โครงการสอนภาษาจีน - อังกฤษ -
+                      คอมพิวเตอร์และทักษะวิชาชีพเบื้องต้น ออนไลน์ ฟรี
+                    </h2>
+                    <div className="fs-13 mb-2 text-right">
+                      <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScN7v2YC6tEVT5D6TSUMAbp2q56aZgucOeY231jwHDUUWI-nA/viewform?fbclid=IwAR1ch1fypxxJwYfQHEmW2jdTQDpCsCSJoXsRDYEtrz9MIFHF1zTTKqwWDf8"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="mb-0 btn btn-primary col-3">
+                          อ่าน
+                        </button>
+                      </a>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center border-bottom pt-3 pb-2">
-                      <div className="div-w-80 mr-3">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_12.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                      </div>
-                      <h3 className="font-weight-600 mb-0">
-                        SEO Strategy &amp; Google Search
-                      </h3>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-12 grid-margin">
+                    <h2 className="mb-2 font-weight-600">
+                      การรับเอกสารสำคัญทางการศึกษา
+                      สำหรับผู้สำเร็จการศึกษาประจำภาคเรียนที่ 2 ปีการศึกษา 2562
+                    </h2>
+                    <div className="fs-13 mb-2 text-right">
+                      <a
+                        href="http://reg.chandra.ac.th/registrar/download/grad2562.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="mb-0 btn btn-primary col-3">
+                          อ่าน
+                        </button>
+                      </a>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center border-bottom pt-3 pb-2">
-                      <div className="div-w-80 mr-3">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_13.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                      </div>
-                      <h3 className="font-weight-600 mb-0">
-                        Cycling benefit &amp; disadvantag
-                      </h3>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-12 grid-margin">
+                    <h2 className="mb-2 font-weight-600">
+                      กำหนดรับรายงานตัวนักศึกษาใหม่ ประจำปีการศึกษา 2563
+                    </h2>
+                    <div className="fs-13 mb-2 text-right">
+                      <a
+                        href="https://chainat.chandra.ac.th/images/open2563.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="mb-0 btn btn-primary col-3">
+                          อ่าน
+                        </button>
+                      </a>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center border-bottom pt-3 pb-2">
-                      <div className="div-w-80 mr-3">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_14.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                      </div>
-                      <h3 className="font-weight-600">
-                        The Major Health Benefits of
-                      </h3>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-12 grid-margin">
+                    <h2 className="mb-2 font-weight-600">
+                      นักศึกษาที่สำเร็จการศึกษาประจำปีการศึกษา 2562
+                      เข้าร่วมกิจกรรมผ่านระบบออนไลน์
+                    </h2>
+                    <div className="fs-13 mb-2 text-right">
+                      <a
+                        href="http://cad.chandra.ac.th/final-chandra/?fbclid=IwAR1I9jH03wzC95pwXNLHtVMPIfJGgB0wYUzzpLVciGmyrw8KTbmNG_NWBlc"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="mb-0 btn btn-primary col-3">
+                          อ่าน
+                        </button>
+                      </a>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center pt-3">
-                      <div className="div-w-80 mr-3">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_15.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                      </div>
-                      <h3 className="font-weight-600 mb-0">
-                        Powerful Moments of Peace
-                      </h3>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-12 grid-margin">
+                    <h2 className="mb-2 font-weight-600">
+                      โครงการประกวดทำคลิปเผยแพร่มารยาทไทยแก้ปัญหาจราจร
+                    </h2>
+                    <div className="fs-13 mb-2 text-right">
+                      <a
+                        href="https://chainat.chandra.ac.th/images/jl63.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="mb-0 btn btn-primary col-3">
+                          อ่าน
+                        </button>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="row" data-aos="fade-up">
-          <div className="col-sm-12">
+          <div className="col-lg-12 stretch-card grid-margin">
             <div className="card">
               <div className="card-body">
                 <div className="row">
-                  <div className="col-xl-6">
-                    <div className="card-title">Sport light</div>
-                    <div className="row">
-                      <div className="col-xl-6 col-lg-8 col-sm-6">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_16.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                        <h2 className="mt-3 text-primary mb-2">
-                          Newsrooms exercise..
-                        </h2>
-                        <p className="fs-13 mb-1 text-muted">
-                          <span className="mr-2">Photo </span>10 Minutes ago
-                        </p>
-                        <p className="my-3 fs-15">
-                          Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an unknown printer
-                          took
-                        </p>
-                        <a href="#" className="font-weight-600 fs-16 text-dark">
-                          Read more
-                        </a>
-                      </div>
-                      <div className="col-xl-6 col-lg-4 col-sm-6">
-                        <div className="border-bottom pb-3 mb-3">
-                          <h3 className="font-weight-600 mb-0">
-                            Social distancing is ..
-                          </h3>
-                          <p className="fs-13 text-muted mb-0">
-                            <span className="mr-2">Photo </span>10 Minutes ago
-                          </p>
-                          <p className="mb-0">
-                            Lorem Ipsum has been the industry's
-                          </p>
-                        </div>
-                        <div className="border-bottom pb-3 mb-3">
-                          <h3 className="font-weight-600 mb-0">
-                            Panic buying is forcing..
-                          </h3>
-                          <p className="fs-13 text-muted mb-0">
-                            <span className="mr-2">Photo </span>10 Minutes ago
-                          </p>
-                          <p className="mb-0">
-                            Lorem Ipsum has been the industry's
-                          </p>
-                        </div>
-                        <div className="border-bottom pb-3 mb-3">
-                          <h3 className="font-weight-600 mb-0">
-                            Businesses ask hundreds..
-                          </h3>
-                          <p className="fs-13 text-muted mb-0">
-                            <span className="mr-2">Photo </span>10 Minutes ago
-                          </p>
-                          <p className="mb-0">
-                            Lorem Ipsum has been the industry's
-                          </p>
-                        </div>
-                        <div>
-                          <h3 className="font-weight-600 mb-0">
-                            Tesla's California factory..
-                          </h3>
-                          <p className="fs-13 text-muted mb-0">
-                            <span className="mr-2">Photo </span>10 Minutes ago
-                          </p>
-                          <p className="mb-0">
-                            Lorem Ipsum has been the industry's
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="col-3 item">
+                    <a
+                      href="https://picsum.photos/200/300"
+                      data-lightbox="photos"
+                    >
+                      <img
+                        className="img-fluid"
+                        src="https://picsum.photos/200/300"
+                      />
+                    </a>
                   </div>
-                  <div className="col-xl-6">
-                    <div className="row">
-                      <div className="col-sm-6">
-                        <div className="card-title">Sport light</div>
-                        <div className="border-bottom pb-3">
-                          <div className="rotate-img">
-                            <img
-                              src="assets/images/dashboard/home_17.jpg"
-                              alt="thumb"
-                              className="img-fluid"
-                            />
-                          </div>
-                          <p className="fs-16 font-weight-600 mb-0 mt-3">
-                            Kaine: Trump Jr. may have
-                          </p>
-                          <p className="fs-13 text-muted mb-0">
-                            <span className="mr-2">Photo </span>10 Minutes ago
-                          </p>
-                        </div>
-                        <div className="pt-3 pb-3">
-                          <div className="rotate-img">
-                            <img
-                              src="assets/images/dashboard/home_18.jpg"
-                              alt="thumb"
-                              className="img-fluid"
-                            />
-                          </div>
-                          <p className="fs-16 font-weight-600 mb-0 mt-3">
-                            Kaine: Trump Jr. may have
-                          </p>
-                          <p className="fs-13 text-muted mb-0">
-                            <span className="mr-2">Photo </span>10 Minutes ago
-                          </p>
-                        </div>
-                      </div>
-                      <div className="col-sm-6">
-                        <div className="card-title">Celebrity news</div>
-                        <div className="row">
-                          <div className="col-sm-12">
-                            <div className="border-bottom pb-3">
-                              <div className="row">
-                                <div className="col-sm-5 pr-2">
-                                  <div className="rotate-img">
-                                    <img
-                                      src="assets/images/dashboard/home_19.jpg"
-                                      alt="thumb"
-                                      className="img-fluid w-100"
-                                    />
-                                  </div>
-                                </div>
-                                <div className="col-sm-7 pl-2">
-                                  <p className="fs-16 font-weight-600 mb-0">
-                                    Online shopping ..
-                                  </p>
-                                  <p className="fs-13 text-muted mb-0">
-                                    <span className="mr-2">Photo </span>10
-                                    Minutes ago
-                                  </p>
-                                  <p className="mb-0 fs-13">
-                                    Lorem Ipsum has been
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-sm-12">
-                            <div className="border-bottom pb-3 pt-3">
-                              <div className="row">
-                                <div className="col-sm-5 pr-2">
-                                  <div className="rotate-img">
-                                    <img
-                                      src="assets/images/dashboard/home_20.jpg"
-                                      alt="thumb"
-                                      className="img-fluid w-100"
-                                    />
-                                  </div>
-                                </div>
-                                <div className="col-sm-7 pl-2">
-                                  <p className="fs-16 font-weight-600 mb-0">
-                                    Online shopping ..
-                                  </p>
-                                  <p className="fs-13 text-muted mb-0">
-                                    <span className="mr-2">Photo </span>10
-                                    Minutes ago
-                                  </p>
-                                  <p className="mb-0 fs-13">
-                                    Lorem Ipsum has been
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-sm-12">
-                            <div className="border-bottom pb-3 pt-3">
-                              <div className="row">
-                                <div className="col-sm-5 pr-2">
-                                  <div className="rotate-img">
-                                    <img
-                                      src="assets/images/dashboard/home_21.jpg"
-                                      alt="thumb"
-                                      className="img-fluid w-100"
-                                    />
-                                  </div>
-                                </div>
-                                <div className="col-sm-7 pl-2">
-                                  <p className="fs-16 font-weight-600 mb-0">
-                                    Online shopping ..
-                                  </p>
-                                  <p className="fs-13 text-muted mb-0">
-                                    <span className="mr-2">Photo </span>10
-                                    Minutes ago
-                                  </p>
-                                  <p className="mb-0 fs-13">
-                                    Lorem Ipsum has been
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-sm-12">
-                            <div className="pt-3">
-                              <div className="row">
-                                <div className="col-sm-5 pr-2">
-                                  <div className="rotate-img">
-                                    <img
-                                      src="assets/images/dashboard/home_22.jpg"
-                                      alt="thumb"
-                                      className="img-fluid w-100"
-                                    />
-                                  </div>
-                                </div>
-                                <div className="col-sm-7 pl-2">
-                                  <p className="fs-16 font-weight-600 mb-0">
-                                    Online shopping ..
-                                  </p>
-                                  <p className="fs-13 text-muted mb-0">
-                                    <span className="mr-2">Photo </span>10
-                                    Minutes ago
-                                  </p>
-                                  <p className="mb-0 fs-13">
-                                    Lorem Ipsum has been
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="col-3 item">
+                    <a
+                      href="https://picsum.photos/200/300"
+                      data-lightbox="photos"
+                    >
+                      <img
+                        className="img-fluid"
+                        src="https://picsum.photos/200/300"
+                      />
+                    </a>
+                  </div>
+                  <div className="col-3 item">
+                    <a
+                      href="https://picsum.photos/200/300"
+                      data-lightbox="photos"
+                    >
+                      <img
+                        className="img-fluid"
+                        src="https://picsum.photos/200/300"
+                      />
+                    </a>
+                  </div>
+                  <div className="col-3 item">
+                    <a
+                      href="https://picsum.photos/200/300"
+                      data-lightbox="photos"
+                    >
+                      <img
+                        className="img-fluid"
+                        src="https://picsum.photos/200/300"
+                      />
+                    </a>
+                  </div>
+                  <div className="col-12 mt-5 text-center">
+                    <a href="/gallery">
+                      <button type="button" class="btn btn-primary btn-lg">
+                        Read More
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
