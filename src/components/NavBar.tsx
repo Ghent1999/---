@@ -32,12 +32,7 @@ export default function NavBar() {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" type="button" href="/history">
-                        History
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="/">
+                      <a className="nav-link" href="/contact">
                         Contact
                       </a>
                     </li>
@@ -54,23 +49,6 @@ export default function NavBar() {
                   </ul>
                 </div>
               </div>
-              <ul className="social-media mt-4">
-                <li>
-                  <a href="#">
-                    <i className="mdi mdi-facebook" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="mdi mdi-youtube" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="mdi mdi-twitter" />
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </nav>
