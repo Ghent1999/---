@@ -1,7 +1,21 @@
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable array-callback-return */
 import "./Home.css";
+import { useEffect, useState } from "react";
+import { GetGallery } from "../../services/GalleryService";
+import GalleryModel from "../../models/GalleryModel";
 
 export default function HomePage() {
+  const [fetchGallery, setFetchGallery] = useState({ data: [] });
+
+  const fetchGalleryData = async () => {
+    const gallery = await GetGallery();
+    setFetchGallery(gallery);
+  };
+
+  useEffect(() => {
+    fetchGalleryData();
+  });
+
   return (
     <div className="content-wrapper">
       <div className="container">
@@ -259,53 +273,24 @@ export default function HomePage() {
             <div className="card">
               <div className="card-body">
                 <div className="row">
-                  <div className="col-3 item">
-                    <a
-                      href="https://picsum.photos/200/300"
-                      data-lightbox="photos"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="https://picsum.photos/200/300"
-                      />
-                    </a>
-                  </div>
-                  <div className="col-3 item">
-                    <a
-                      href="https://picsum.photos/200/300"
-                      data-lightbox="photos"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="https://picsum.photos/200/300"
-                      />
-                    </a>
-                  </div>
-                  <div className="col-3 item">
-                    <a
-                      href="https://picsum.photos/200/300"
-                      data-lightbox="photos"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="https://picsum.photos/200/300"
-                      />
-                    </a>
-                  </div>
-                  <div className="col-3 item">
-                    <a
-                      href="https://picsum.photos/200/300"
-                      data-lightbox="photos"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="https://picsum.photos/200/300"
-                      />
-                    </a>
-                  </div>
+                  {fetchGallery.data.map((data, index) => {
+                    if (index < 4) {
+                      return (
+                        <div className="col-3 item" key={data.id}>
+                          <a href={data.image} data-lightbox="photos">
+                            <img
+                              className="img-fluid"
+                              src={data.image}
+                              alt=""
+                            />
+                          </a>
+                        </div>
+                      );
+                    }
+                  })}
                   <div className="col-12 mt-5 text-center">
                     <a href="/gallery">
-                      <button type="button" class="btn btn-primary btn-lg">
+                      <button type="button" className="btn btn-primary btn-lg">
                         Read More
                       </button>
                     </a>

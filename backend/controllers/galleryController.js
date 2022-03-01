@@ -2,7 +2,7 @@ const firebase = require("../db");
 const Gallery = require("../models/gallery");
 const firestore = firebase.firestore();
 
-const getAlldata = async (req, res, next) => {
+const getAllGallery = async (req, res, next) => {
   try {
     const account = await firestore.collection("gallery");
     const data = await account.get();
@@ -14,21 +14,21 @@ const getAlldata = async (req, res, next) => {
         const account = new Gallery(
           doc.id,
           doc.data().create_at,
-          doc.data().fullname,
+          doc.data().full_name,
           doc.data().image,
           doc.data().tel,
-          doc.data().typeCow
+          doc.data().type
         );
         dataCowArray.push(account);
       });
-      res.send(dataCowArray);
+      res.status(200).send({ data: dataCowArray });
     }
   } catch (error) {
     res.status(400).send(error.message);
   }
 };
 
-const addImage = async (req, res, next) => {
+const addGallery = async (req, res, next) => {
   try {
     const data = req.body;
     await firestore.collection("gallery").doc().set(data);
@@ -76,8 +76,8 @@ const deleteAccount = async (req, res, next) => {
 };
 
 module.exports = {
-  addImage,
-  getAlldata,
+  addGallery,
+  getAllGallery,
   getAccount,
   updateAccount,
   deleteAccount,

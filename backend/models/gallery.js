@@ -1,10 +1,10 @@
 class Gallery {
-  constructor(id, create_at, fullname, image, tel, typeCow) {
+  constructor(id, create_at, full_name, image, tel, type) {
     this.id = id;
     this.create_at = create_at;
-    this.fullname = fullname;
+    this.full_name = full_name;
     this.tel = tel;
-    this.typeCow = typeCow;
+    this.typeCow = type;
     this.image = image;
   }
 }
