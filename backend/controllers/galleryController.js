@@ -1,38 +1,38 @@
-"use strict";
-
 const firebase = require("../db");
-const Account = require("../models/login");
+const Gallery = require("../models/gallery");
 const firestore = firebase.firestore();
+
+const getAlldata = async (req, res, next) => {
+  try {
+    const account = await firestore.collection("gallery");
+    const data = await account.get();
+    const dataCowArray = [];
+    if (data.empty) {
+      res.status(404).send("ไม่พบข้อมูลใด");
+    } else {
+      data.forEach((doc) => {
+        const account = new Gallery(
+          doc.id,
+          doc.data().create_at,
+          doc.data().fullname,
+          doc.data().image,
+          doc.data().tel,
+          doc.data().typeCow
+        );
+        dataCowArray.push(account);
+      });
+      res.send(dataCowArray);
+    }
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
 
 const addImage = async (req, res, next) => {
   try {
     const data = req.body;
     await firestore.collection("gallery").doc().set(data);
     res.status(200).send(true);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-};
-
-const getAllAccount = async (req, res, next) => {
-  try {
-    const account = await firestore.collection("login");
-    const data = await account.get();
-    const AccountArray = [];
-    if (data.empty) {
-      res.status(404).send("ไม่พบข้อมูลใด");
-    } else {
-      data.forEach((doc) => {
-        const account = new Account(
-          doc.id,
-          doc.data().username,
-          doc.data().password,
-          doc.data().type
-        );
-        AccountArray.push(account);
-      });
-      res.send(AccountArray);
-    }
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -77,7 +77,7 @@ const deleteAccount = async (req, res, next) => {
 
 module.exports = {
   addImage,
-  getAllAccount,
+  getAlldata,
   getAccount,
   updateAccount,
   deleteAccount,

@@ -5,15 +5,15 @@ const {
   getAccount,
   updateAccount,
   deleteAccount,
-} = require("../controllers/loginController");
+} = require("../controllers/galleryController");
 
 const router = express.Router();
 
-router.post("/image", addImage);
-router.get("/login", getAllAccount);
-router.get("/login/:id", getAccount);
-router.put("/login/:id", updateAccount);
-router.delete("/login/:id", deleteAccount);
+router.get("/gallery", getAllAccount);
+router.get("/gallery/:id", getAccount);
+router.post("/gallery", addImage);
+router.put("/gallery/:id", updateAccount);
+router.delete("/gallery/:id", deleteAccount);
 
 module.exports = {
   routes: router,
