@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "../../../node_modules/@restart/ui/esm/Button";
 import { ListType } from "../../enum/ListTypeCow";
-import axios from "axios";
+
 
 export default function DataImage() {
   const [selectedImage, setSelectedImage] = useState();

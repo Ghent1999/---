@@ -1,19 +1,30 @@
 /* eslint-disable array-callback-return */
 import "./Home.css";
 import { useEffect, useState } from "react";
-import { GetGallery } from "../../services/GalleryService";
-import GalleryModel from "../../models/GalleryModel";
+import TutorialDataService from "../../services/GalleryService";
+import { Button } from "react-bootstrap";
 
 export default function HomePage() {
   const [fetchGallery, setFetchGallery] = useState({ data: [] });
 
-  const fetchGalleryData = async () => {
-    const gallery = await GetGallery();
-    setFetchGallery(gallery);
-  };
+  function test() {
+    TutorialDataService.getAllGallery()
+      .then((response: any) => {
+        setFetchGallery(response.data);
+        console.log(response.data);
+      })
+      .catch((e: Error) => {
+        console.log(e);
+      });
+  }
+
+  // const fetchGalleryData = async () => {
+  //   const gallery = await GetGallery();
+  //   setFetchGallery(gallery);
+  // };
 
   useEffect(() => {
-    fetchGalleryData();
+    test();
   });
 
   return (
@@ -273,7 +284,8 @@ export default function HomePage() {
             <div className="card">
               <div className="card-body">
                 <div className="row">
-                  {fetchGallery.data.map((data, index) => {
+                  {/* {fetchGallery.data.map((data, index) => {
+                    console.log(data);
                     if (index < 4) {
                       return (
                         <div className="col-3 item" key={data.id}>
@@ -287,7 +299,7 @@ export default function HomePage() {
                         </div>
                       );
                     }
-                  })}
+                  })} */}
                   <div className="col-12 mt-5 text-center">
                     <a href="/gallery">
                       <button type="button" className="btn btn-primary btn-lg">
