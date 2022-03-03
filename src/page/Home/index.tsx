@@ -2,17 +2,21 @@
 import "./Home.css";
 import { useEffect, useState } from "react";
 import TutorialDataService from "../../services/GalleryService";
-import { Button } from "react-bootstrap";
 import GalleryModel from "../../models/GalleryModel";
+import GalleryDetailResponse from "../../models/GalleryModel";
 
 export default function HomePage() {
-  const [fetchGallery, setFetchGallery] = useState({ data: [] });
+  // const [fetchGallery, setFetchGallery] = useState({ data: [] });
+  const [dataArray, setDataArray] = useState([]);
 
-  function test() {
+  useEffect(() => {
+    GetDataGallery();
+  }, []);
+
+  function GetDataGallery() {
     TutorialDataService.getAllGallery()
       .then((response: any) => {
-        setFetchGallery(response.data);
-        console.log(response.data);
+        setDataArray(response.data);
       })
       .catch((e: Error) => {
         console.log(e);
@@ -24,9 +28,9 @@ export default function HomePage() {
   //   setFetchGallery(gallery);
   // };
 
-  useEffect(() => {
-    // test();
-  });
+  // useEffect(() => {
+  //   // test();
+  // });
 
   return (
     <div className="content-wrapper">
@@ -285,22 +289,21 @@ export default function HomePage() {
             <div className="card">
               <div className="card-body">
                 <div className="row">
-                  {/* {fetchGallery.data.map((data, index) => {
-                    console.log(data);
+                  {dataArray.map((item: GalleryDetailResponse, index) => {
                     if (index < 4) {
                       return (
-                        <div className="col-3 item" key={data.id}>
-                          <a href={data.image} data-lightbox="photos">
+                        <div className="col-3 item" key={item.id}>
+                          <a href={item.image} data-lightbox="photos">
                             <img
                               className="img-fluid"
-                              src={data.image}
+                              src={item.image}
                               alt=""
                             />
                           </a>
                         </div>
                       );
                     }
-                  })} */}
+                  })}
                   <div className="col-12 mt-5 text-center">
                     <a href="/gallery">
                       <button type="button" className="btn btn-primary btn-lg">
