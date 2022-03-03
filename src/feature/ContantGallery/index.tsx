@@ -1,35 +1,40 @@
 import { useEffect, useState } from "react";
-import GalleryModel from "../../models/GalleryModel";
+import GalleryDetailResponse from "../../models/GalleryModel";
 import TutorialDataService from "../../services/GalleryService";
 
 import axios from "axios";
+import GalleryModel from "../../models/GalleryModel";
 /* eslint-disable jsx-a11y/alt-text */
 interface ContentGalleryProps {
   tab: string;
+  type: GalleryModel[];
 }
 
 
-export default function ContentGallery({ tab }: ContentGalleryProps) {
+
+export default function ContentGallery({ tab, type }: ContentGalleryProps) {
   const [fetchGallery, setFetchGallery] = useState({ data: [] });
   const [dataArray, setDataArray] = useState([]);
   const [noMoreData, setNoMoreData] = useState(false);
   const [loopMutex, setLoopMutex] = useState(true);
-  useEffect(() => {
-    retrieveTutorials();
-  }, []);
   
-  const retrieveTutorials = () => {
-    TutorialDataService.getAllGallery()
-      .then((response: any) => {
-        setDataArray(response.data);
-        console.log(response.data);
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  };
+  // console.log(type);
+  // setDataArray(type);
 
-  
+  // useEffect(() => {
+  //   retrieveTutorials();
+  // }, []);
+
+  // function retrieveTutorials() {
+  //   TutorialDataService.getAllGallery()
+  //     .then((response: any) => {
+  //       setDataArray(response.data);
+  //       // console.log(response.data);
+  //     })
+  //     .catch((e: Error) => {
+  //       console.log(e);
+  //     });
+  // }
 
   // const fetchData = async () => {
   //   try {
@@ -67,7 +72,7 @@ export default function ContentGallery({ tab }: ContentGalleryProps) {
   // }, []);
 
   // useEffect(() => {
-    
+
   //   if (!noMoreData) {
   //     fetchData();
   //   }
@@ -75,38 +80,38 @@ export default function ContentGallery({ tab }: ContentGalleryProps) {
   // },[loopMutex]);
   return (
     <>
-      {dataArray.map((data, index) => {
-        console.log(data);
-        // if (data == tab) {
-        //   return (
-        //     <div className="col-3 item" key={data.id}>
-        //       <a href={data.image} data-lightbox="photos">
-        //         <img className="img-fluid" src={data.image} alt="" />
-        //       </a>
-        //     </div>
-        //   );
-        // }
+      {type.map((item: GalleryDetailResponse, index) => {
+        if (item.typeCow === tab) {
+          // console.log(tab);
+          return (
+            // <div className="col-3 item" key={item.id}>
+            //   <a href={item.image} data-lightbox="photos">
+            //     <img className="img-fluid" src={item.image} alt="" />
+            //   </a>
+            // </div>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h1 className="text-white mt-3">{tab}</h1>
+                <div className="row">
+                  <a
+                    href={item.image}
+                    data-toggle="lightbox"
+                    data-gallery="example-gallery"
+                    className="col-lg-3 col-md-4 col-6 my-3"
+                  >
+                    <img
+                      src={item.image}
+                      className="img-fluid card"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          );
+        }
       })}
     </>
-    // <div className="container">
-    //   <div className="row">
-    //     <div className="col-12">
-    //       <h1 className="text-white mt-3">{tab}</h1>
-    //       <div className="row">
-    //         <a
-    //           href="https://unsplash.it/1200/768.jpg?image=251"
-    //           data-toggle="lightbox"
-    //           data-gallery="example-gallery"
-    //           className="col-lg-3 col-md-4 col-6 my-3"
-    //         >
-    //           <img
-    //             src="https://unsplash.it/600.jpg?image=251"
-    //             className="img-fluid card"
-    //           />
-    //         </a>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }

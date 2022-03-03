@@ -3,6 +3,7 @@ import "./Home.css";
 import { useEffect, useState } from "react";
 import TutorialDataService from "../../services/GalleryService";
 import { Button } from "react-bootstrap";
+import GalleryModel from "../../models/GalleryModel";
 
 export default function HomePage() {
   const [fetchGallery, setFetchGallery] = useState({ data: [] });
@@ -24,7 +25,7 @@ export default function HomePage() {
   // };
 
   useEffect(() => {
-    test();
+    // test();
   });
 
   return (
