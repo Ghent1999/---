@@ -30,6 +30,33 @@ const getAllGallery = async (req, res, next) => {
   }
 };
 
+
+const getAllGallerySort = async (req, res, next) => {
+  try {
+    const account = await firestore.collection("gallery");
+    const data = await account.orderBy("no", "desc").get();
+    const dataCowArray = [];
+    if (data.empty) {
+      res.status(404).send("ไม่พบข้อมูลใด");
+    } else {
+      data.forEach((doc) => {
+        const account = new Gallery(
+          doc.id,
+          doc.data().create_at,
+          doc.data().full_name,
+          doc.data().image,
+          doc.data().tel,
+          doc.data().type
+        );
+        dataCowArray.push(account);
+      });
+      res.status(200).send({ data: dataCowArray });
+    }
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
 const addGallery = async (req, res, next) => {
   try {
     const data = req.body;
@@ -80,6 +107,7 @@ const deleteAccount = async (req, res, next) => {
 module.exports = {
   addGallery,
   getAllGallery,
+  getAllGallerySort,
   getAccount,
   updateAccount,
   deleteAccount,

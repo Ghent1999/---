@@ -8,6 +8,11 @@ export const GetGallery = async () => {
 const getAllGallery = () => {
   return httpClient.get<Array<GalleryModel[]>>("/gallery").then((res) => res.data);
 };
+
+const getAllGallerySort = () => {
+  return httpClient.get<Array<GalleryModel[]>>("/gallery/sort/order").then((res) => res.data);
+};
+
 const get = (id: any) => {
   return httpClient.get<GalleryModel>(`/tutorials/${id}`);
 };
@@ -28,6 +33,7 @@ const findByTitle = (title: string) => {
 };
 const TutorialService = {
   getAllGallery,
+  getAllGallerySort,
   get,
   create,
   update,

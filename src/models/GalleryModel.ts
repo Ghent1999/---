@@ -14,7 +14,7 @@ interface GalleryResponse {
 export default interface GalleryDetailResponse {
   id: string;
   create_at: string;
-  fullname: string;
+  full_name: string;
   tel: string;
   typeCow: string;
   image: string;

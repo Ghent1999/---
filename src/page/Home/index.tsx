@@ -8,15 +8,27 @@ import GalleryDetailResponse from "../../models/GalleryModel";
 export default function HomePage() {
   // const [fetchGallery, setFetchGallery] = useState({ data: [] });
   const [dataArray, setDataArray] = useState([]);
+  const [dataSort, setDateSory] = useState([]);
 
   useEffect(() => {
     GetDataGallery();
+    GetDataGallerySort();
   }, []);
 
   function GetDataGallery() {
     TutorialDataService.getAllGallery()
       .then((response: any) => {
         setDataArray(response.data);
+      })
+      .catch((e: Error) => {
+        console.log(e);
+      });
+  }
+
+  function GetDataGallerySort() {
+    TutorialDataService.getAllGallerySort()
+      .then((response: any) => {
+        setDateSory(response.data);
       })
       .catch((e: Error) => {
         console.log(e);
@@ -61,46 +73,31 @@ export default function HomePage() {
           <div className="col-xl-4 stretch-card grid-margin">
             <div className="card bg-dark text-white">
               <div className="card-body">
-                <h2>Cow Open Dataset</h2>
-                <div className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
-                  <div className="pr-3">
-                    <h5>รายละเอียดวัวที่ 1 </h5>
-                    <div className="fs-12"></div>
-                  </div>
-                  <div className="rotate-img">
-                    <img
-                      src="assets/images/dashboard/home_1.jpg"
-                      alt="thumb"
-                      className="img-fluid img-lg"
-                    />
-                  </div>
-                </div>
-                <div className="d-flex border-bottom-blue pb-4 pt-4 align-items-center justify-content-between">
-                  <div className="pr-3">
-                    <h5>รายละเอียดวัวที่ 2 </h5>
-                    <div className="fs-12"></div>
-                  </div>
-                  <div className="rotate-img">
-                    <img
-                      src="assets/images/dashboard/home_2.jpg"
-                      alt="thumb"
-                      className="img-fluid img-lg"
-                    />
-                  </div>
-                </div>
-                <div className="d-flex pt-4 align-items-center justify-content-between">
-                  <div className="pr-3">
-                    <h5>รายละเอียดวัวที่ 3 </h5>
-                    <div className="fs-12"></div>
-                  </div>
-                  <div className="rotate-img">
-                    <img
-                      src="assets/images/dashboard/home_3.jpg"
-                      alt="thumb"
-                      className="img-fluid img-lg"
-                    />
-                  </div>
-                </div>
+                <h2>ข้อมูลวัวล่าสุด</h2>
+                {dataSort.map((item: GalleryDetailResponse, index) => {
+                  if (index < 3) {
+                    return (
+                      <>
+                        <div className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
+                          <div className="pr-3 textDetail">
+                            <h5>
+                              <div>{item.full_name} </div>
+                              <div>{item.create_at} </div>
+                            </h5>
+                            <div className="fs-12"></div>
+                          </div>
+                          <div className="rotate-img">
+                            <img
+                              src={item.image}
+                              alt="thumb"
+                              className="img-fluid img-lg"
+                            />
+                          </div>
+                        </div>
+                      </>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
