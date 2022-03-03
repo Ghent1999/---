@@ -34,7 +34,9 @@ export default function Gallery() {
             <div className="row">
               <div className="col-12">
                 <h1 className="text-white mt-3">{ListType.NOSE}</h1>
-                <ContentGallery tab={ListType.NOSE} type={dataArray} />
+                <div className="row">
+                  <ContentGallery tab={ListType.NOSE} type={dataArray} />
+                </div>
               </div>
             </div>
           </div>
@@ -44,7 +46,9 @@ export default function Gallery() {
             <div className="row">
               <div className="col-12">
                 <h1 className="text-white mt-3">{ListType.LEFTSIDE}</h1>
-                <ContentGallery tab={ListType.LEFTSIDE} type={dataArray} />
+                <div className="row">
+                  <ContentGallery tab={ListType.LEFTSIDE} type={dataArray} />
+                </div>
               </div>
             </div>
           </div>
@@ -54,17 +58,21 @@ export default function Gallery() {
             <div className="row">
               <div className="col-12">
                 <h1 className="text-white mt-3">{ListType.RIGHTSIDE}</h1>
-                <ContentGallery tab={ListType.RIGHTSIDE} type={dataArray} />
+                <div className="row">
+                  <ContentGallery tab={ListType.RIGHTSIDE} type={dataArray} />
+                </div>
               </div>
             </div>
           </div>
         </Tab>
         <Tab eventKey={ListType.HAUNCH} title={ListType.HAUNCH}>
-          <div className="container" >
+          <div className="container">
             <div className="row">
               <div className="col-12">
                 <h1 className="text-white mt-3">{ListType.HAUNCH}</h1>
-                <ContentGallery tab={ListType.HAUNCH} type={dataArray} />
+                <div className="row">
+                  <ContentGallery tab={ListType.HAUNCH} type={dataArray} />
+                </div>
               </div>
             </div>
           </div>
@@ -74,7 +82,9 @@ export default function Gallery() {
             <div className="row">
               <div className="col-12">
                 <h1 className="text-white mt-3">{ListType.STOOL}</h1>
-                <ContentGallery tab={ListType.STOOL} type={dataArray} />
+                <div className="row">
+                  <ContentGallery tab={ListType.STOOL} type={dataArray} />
+                </div>
               </div>
             </div>
           </div>
