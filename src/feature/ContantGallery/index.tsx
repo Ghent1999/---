@@ -1,29 +1,30 @@
-/* eslint-disable jsx-a11y/alt-text */
+import GalleryDetailResponse from "../../models/GalleryModel";
+import GalleryModel from "../../models/GalleryModel";
+import "./contantgallery.css";
+import ReactCardFlip from "react-card-flip";
+import { useState } from "react";
+import React from "react";
+import Card from "../../components/CardCow";
 interface ContentGalleryProps {
   tab: string;
+  type: GalleryModel[];
 }
-
-export default function ContentGallery({ tab }: ContentGalleryProps) {
-  return (
-    <div className="container">
+export default function ContentGallery({ tab, type }: ContentGalleryProps) {
+  const Projects = () => {
+    return (
       <div className="row">
-        <div className="col-12">
-          <h1 className="text-white mt-3">{tab}</h1>
-          <div className="row">
-            <a
-              href="https://unsplash.it/1200/768.jpg?image=251"
-              data-toggle="lightbox"
-              data-gallery="example-gallery"
-              className="col-lg-3 col-md-4 col-6 my-3"
-            >
-              <img
-                src="https://unsplash.it/600.jpg?image=251"
-                className="img-fluid card"
-              />
-            </a>
-          </div>
-        </div>
+        {type.map((item: GalleryDetailResponse, index) => {
+          if (item.type === tab) {
+            return <Card project={item} key={`card-${index}`} />;
+          }
+        })}
       </div>
-    </div>
+    );
+  };
+
+  return (
+    <>
+      <Projects />
+    </>
   );
 }

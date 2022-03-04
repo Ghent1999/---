@@ -1,20 +1,51 @@
 /* eslint-disable array-callback-return */
 import "./Home.css";
 import { useEffect, useState } from "react";
-import { GetGallery } from "../../services/GalleryService";
+import TutorialDataService from "../../services/GalleryService";
 import GalleryModel from "../../models/GalleryModel";
+import GalleryDetailResponse from "../../models/GalleryModel";
+import Card from "../../components/CardCow";
 
 export default function HomePage() {
-  const [fetchGallery, setFetchGallery] = useState({ data: [] });
-
-  const fetchGalleryData = async () => {
-    const gallery = await GetGallery();
-    setFetchGallery(gallery);
-  };
+  const [dataArray, setDataArray] = useState([]);
+  const [dataSort, setDateSory] = useState([]);
 
   useEffect(() => {
-    fetchGalleryData();
-  });
+    GetDataGallery();
+    GetDataGallerySort();
+  }, []);
+
+  function GetDataGallery() {
+    TutorialDataService.getAllGallery()
+      .then((response: any) => {
+        setDataArray(response.data);
+      })
+      .catch((e: Error) => {
+        console.log(e);
+      });
+  }
+
+  function GetDataGallerySort() {
+    TutorialDataService.getAllGallerySort()
+      .then((response: any) => {
+        setDateSory(response.data);
+      })
+      .catch((e: Error) => {
+        console.log(e);
+      });
+  }
+
+  const Projects = () => {
+    return (
+      <div className="row">
+        {dataArray.map((item: GalleryDetailResponse, index) => {
+          if (index < 4) {
+            return <Card project={item} key={`card-${index}`} />;
+          }
+        })}
+      </div>
+    );
+  };
 
   return (
     <div className="content-wrapper">
@@ -45,46 +76,32 @@ export default function HomePage() {
           <div className="col-xl-4 stretch-card grid-margin">
             <div className="card bg-dark text-white">
               <div className="card-body">
-                <h2>Cow Open Dataset</h2>
-                <div className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
-                  <div className="pr-3">
-                    <h5>รายละเอียดวัวที่ 1 </h5>
-                    <div className="fs-12"></div>
-                  </div>
-                  <div className="rotate-img">
-                    <img
-                      src="assets/images/dashboard/home_1.jpg"
-                      alt="thumb"
-                      className="img-fluid img-lg"
-                    />
-                  </div>
-                </div>
-                <div className="d-flex border-bottom-blue pb-4 pt-4 align-items-center justify-content-between">
-                  <div className="pr-3">
-                    <h5>รายละเอียดวัวที่ 2 </h5>
-                    <div className="fs-12"></div>
-                  </div>
-                  <div className="rotate-img">
-                    <img
-                      src="assets/images/dashboard/home_2.jpg"
-                      alt="thumb"
-                      className="img-fluid img-lg"
-                    />
-                  </div>
-                </div>
-                <div className="d-flex pt-4 align-items-center justify-content-between">
-                  <div className="pr-3">
-                    <h5>รายละเอียดวัวที่ 3 </h5>
-                    <div className="fs-12"></div>
-                  </div>
-                  <div className="rotate-img">
-                    <img
-                      src="assets/images/dashboard/home_3.jpg"
-                      alt="thumb"
-                      className="img-fluid img-lg"
-                    />
-                  </div>
-                </div>
+                <h2>ข้อมูลวัวล่าสุด</h2>
+                {dataSort.map((item: GalleryDetailResponse, index) => {
+                  if (index < 3) {
+                    return (
+                      <div
+                        className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between"
+                        key={item.id}
+                      >
+                        <div className="pr-3 textDetail">
+                          <h5>
+                            <div>{item.full_name} </div>
+                            <div>{item.create_at} </div>
+                          </h5>
+                          <div className="fs-12"></div>
+                        </div>
+                        <div className="rotate-img">
+                          <img
+                            src={item.image}
+                            alt="thumb"
+                            className="img-fluid img-lg"
+                          />
+                        </div>
+                      </div>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
@@ -272,22 +289,8 @@ export default function HomePage() {
           <div className="col-lg-12 stretch-card grid-margin">
             <div className="card">
               <div className="card-body">
-                <div className="row">
-                  {fetchGallery.data.map((data, index) => {
-                    if (index < 4) {
-                      return (
-                        <div className="col-3 item" key={data.id}>
-                          <a href={data.image} data-lightbox="photos">
-                            <img
-                              className="img-fluid"
-                              src={data.image}
-                              alt=""
-                            />
-                          </a>
-                        </div>
-                      );
-                    }
-                  })}
+                <div className="row show">
+                  <Projects />
                   <div className="col-12 mt-5 text-center">
                     <a href="/gallery">
                       <button type="button" className="btn btn-primary btn-lg">

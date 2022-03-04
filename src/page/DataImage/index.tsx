@@ -1,15 +1,23 @@
 import "./dataImageCss.css";
-import { useState } from "react";
-import { Form } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import TutorialDataService from "../../services/GalleryService";
+import { Form, Modal } from "react-bootstrap";
 import Button from "../../../node_modules/@restart/ui/esm/Button";
+import GalleryModel, {
+  GalleryInsert,
+  ImageGallery,
+} from "../../models/GalleryModel";
 import { ListType } from "../../enum/ListTypeCow";
-import axios from "axios";
+import { format } from "date-fns";
+import Modals from "../../components/Modal";
 
 export default function DataImage() {
-  const [selectedImage, setSelectedImage] = useState();
+  const [selectedImage, setSelectedImage] = useState<any>();
   const [fullName, setFullName] = useState("");
   const [tel, setTel] = useState("");
   const [typeCow, setTypeCow] = useState("");
+  const [validated, setValidated] = useState(false);
+  const [modalShow, setModalShow] = useState(true);
 
   const imageChange = (e: { target: { files: string | any[] } }) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -17,11 +25,49 @@ export default function DataImage() {
     }
   };
 
-  const submit = () => {
-    console.log("fullName", fullName);
-    console.log("tel", tel);
-    console.log("TypeCow", typeCow);
-    console.log("Image", selectedImage);
+  const handleSubmit = async (event: any) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+
+    if (fullName != "") {
+      if (tel != "") {
+        if (typeCow != "") {
+          if (selectedImage != undefined) {
+            var date = new Date();
+            var formattedDate = format(date, "d/MM/yyyy HH:mm");
+            await TutorialDataService.getLastNo().then(
+              async (number): Promise<void> => {
+                number.no++;
+                await TutorialDataService.uploadImageGallery(
+                  selectedImage
+                ).then(async (url): Promise<void> => {
+                  const data: GalleryInsert = {
+                    no: number.no,
+                    create_at: formattedDate,
+                    full_name: fullName,
+                    tel: tel,
+                    type: typeCow,
+                    image: url.data.link,
+                  };
+                  await TutorialDataService.addGallery(data)
+                    .then(() => {
+                      console.log("ได้ละ");
+                      setModalShow(true);
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                    });
+                });
+              }
+            );
+          }
+        }
+      }
+    }
   };
 
   const styles = {
@@ -35,8 +81,32 @@ export default function DataImage() {
     },
   };
 
+  const optionSelect = [
+    {
+      value: ListType.NOSE,
+    },
+    {
+      value: ListType.LEFTSIDE,
+    },
+    {
+      value: ListType.RIGHTSIDE,
+    },
+    {
+      value: ListType.HAUNCH,
+    },
+    {
+      value: ListType.STOOL,
+    },
+  ];
+
   return (
     <>
+      {/* <Modals
+        show={modalShow}
+        onHide={() => {
+          setModalShow(false);
+        }}
+      /> */}
       <div className="form-body">
         <div className="row col-12">
           <div className="form-holder w-100">
@@ -44,7 +114,11 @@ export default function DataImage() {
               <div className="form-items">
                 <h3>เพิ่มรายละเอียดวัว</h3>
                 <p>กรุณากรอกข้อมูลจริง</p>
-                <Form className="requires-validation" noValidate>
+                <Form
+                  className="requires-validation"
+                  noValidate
+                  validated={validated}
+                >
                   <div className="col-md-12">
                     <Form.Control
                       type="text"
@@ -52,6 +126,9 @@ export default function DataImage() {
                       onChange={(e) => setFullName(e.target.value)}
                       required
                     />
+                    <div className="invalid-feedback ml-6 pl-2">
+                      กรุณากรอกชื่อ
+                    </div>
                   </div>
                   <div className="col-md-12">
                     <Form.Control
@@ -60,28 +137,34 @@ export default function DataImage() {
                       onChange={(e) => setTel(e.target.value)}
                       required
                     />
+                    <div className="invalid-feedback ml-6 pl-2">
+                      กรุณากรอกเบอร์โทร
+                    </div>
                   </div>
                   <div className="col-md-12">
-                    <Form.Select
-                      required
-                      onChange={(e) => setTypeCow(e.target.value)}
-                    >
-                      <option selected hidden>
-                        ลักษณะกายภาพ
-                      </option>
-                      <option value={ListType.NOSE}>{ListType.NOSE}</option>
-                      <option value={ListType.LEFTSIDE}>
-                        {ListType.LEFTSIDE}
-                      </option>
-                      <option value={ListType.RIGHTSIDE}>
-                        {ListType.RIGHTSIDE}
-                      </option>
-                      <option value={ListType.HAUNCH}>{ListType.HAUNCH}</option>
-                      <option value={ListType.STOOL}>{ListType.STOOL}</option>
-                    </Form.Select>
+                    <Form.Group>
+                      <Form.Control
+                        as="select"
+                        required
+                        onChange={(e) => setTypeCow(e.target.value)}
+                      >
+                        <option value="">เลือกประเภท</option>
+                        {optionSelect.map((option, index) => {
+                          return (
+                            <option value={option.value} key={index}>
+                              {option.value}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                      <div className="invalid-feedback ml-6 pl-2">
+                        กรุณาเลือกประเภท
+                      </div>
+                    </Form.Group>
                   </div>
                   <div className="col-md-12">
                     <Form.Control
+                      required
                       accept="image/*"
                       type="file"
                       className="form-control mt-3 rounded"
@@ -96,11 +179,14 @@ export default function DataImage() {
                         />
                       </div>
                     )}
+                    <div className="invalid-feedback ml-6 pl-2">
+                      กรุณาอัพโหลดรูปภาพ
+                    </div>
                   </div>
 
                   <div className="form-button mt-3 text-center">
                     <Button
-                      onClick={submit}
+                      onClick={handleSubmit}
                       id="submit"
                       className="btn btn-primary col-6"
                     >

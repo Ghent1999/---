@@ -1,7 +1,7 @@
 export enum ListType {
   NOSE = "จมูกวัว",
-  LEFTSIDE = "ลายข้างวัวซ้าย",
-  RIGHTSIDE = "ลายข้างวัวขวา",
+  LEFTSIDE = "ลายวัวข้างซ้าย",
+  RIGHTSIDE = "ลายวัวข้างขวา",
   HAUNCH = "บั้นท้าย",
   STOOL = "อุจระ",
 }

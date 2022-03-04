@@ -2,3 +2,23 @@
   max-height: 300px;
   overflow-y: auto;
 }
+
+.pr-3.textDetail {
+  display:block;
+  width:120px;
+  word-wrap: break-word;
+}
+
+img.img-fluid.showmore {
+  height: 200px;
+  width: 230px;
+}
+
+.rotate-img {
+  height: 100px;
+  width: auto;
+}
+
+.row.show {
+  justify-content: center;
+}
