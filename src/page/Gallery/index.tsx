@@ -4,9 +4,11 @@ import { ListType } from "../../enum/ListTypeCow";
 import ContentGallery from "../../feature/ContantGallery";
 import TutorialDataService from "../../services/GalleryService";
 import "./gallery.css";
+import ReactCardFlip from "react-card-flip";
 
 export default function Gallery() {
   const [dataArray, setDataArray] = useState([]);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
     GetDataGallery();
@@ -22,8 +24,13 @@ export default function Gallery() {
       });
   }
 
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+  }
+
   return (
     <>
+    
       <Tabs
         defaultActiveKey={ListType.NOSE}
         id="uncontrolled-tab-example"

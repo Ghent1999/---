@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import TutorialDataService from "../../services/GalleryService";
 import GalleryModel from "../../models/GalleryModel";
 import GalleryDetailResponse from "../../models/GalleryModel";
+import Card from "../../components/CardCow";
 
 export default function HomePage() {
   const [dataArray, setDataArray] = useState([]);
@@ -33,6 +34,18 @@ export default function HomePage() {
         console.log(e);
       });
   }
+
+  const Projects = () => {
+    return (
+      <div className="row">
+        {dataArray.map((item: GalleryDetailResponse, index) => {
+          if (index < 4) {
+            return <Card project={item} key={`card-${index}`} />;
+          }
+        })}
+      </div>
+    );
+  };
 
   return (
     <div className="content-wrapper">
@@ -67,7 +80,10 @@ export default function HomePage() {
                 {dataSort.map((item: GalleryDetailResponse, index) => {
                   if (index < 3) {
                     return (
-                      <div className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between" key={item.id}>
+                      <div
+                        className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between"
+                        key={item.id}
+                      >
                         <div className="pr-3 textDetail">
                           <h5>
                             <div>{item.full_name} </div>
@@ -273,22 +289,8 @@ export default function HomePage() {
           <div className="col-lg-12 stretch-card grid-margin">
             <div className="card">
               <div className="card-body">
-                <div className="row">
-                  {dataArray.map((item: GalleryDetailResponse, index) => {
-                    if (index < 4) {
-                      return (
-                        <div className="col-3 item" key={item.id}>
-                          <a href={item.image} data-lightbox="photos">
-                            <img
-                              className="img-fluid"
-                              src={item.image}
-                              alt=""
-                            />
-                          </a>
-                        </div>
-                      );
-                    }
-                  })}
+                <div className="row show">
+                  <Projects />
                   <div className="col-12 mt-5 text-center">
                     <a href="/gallery">
                       <button type="button" className="btn btn-primary btn-lg">
