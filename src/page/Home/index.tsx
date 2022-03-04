@@ -6,7 +6,6 @@ import GalleryModel from "../../models/GalleryModel";
 import GalleryDetailResponse from "../../models/GalleryModel";
 
 export default function HomePage() {
-  // const [fetchGallery, setFetchGallery] = useState({ data: [] });
   const [dataArray, setDataArray] = useState([]);
   const [dataSort, setDateSory] = useState([]);
 
@@ -34,15 +33,6 @@ export default function HomePage() {
         console.log(e);
       });
   }
-
-  // const fetchGalleryData = async () => {
-  //   const gallery = await GetGallery();
-  //   setFetchGallery(gallery);
-  // };
-
-  // useEffect(() => {
-  //   // test();
-  // });
 
   return (
     <div className="content-wrapper">
@@ -77,24 +67,22 @@ export default function HomePage() {
                 {dataSort.map((item: GalleryDetailResponse, index) => {
                   if (index < 3) {
                     return (
-                      <>
-                        <div className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
-                          <div className="pr-3 textDetail">
-                            <h5>
-                              <div>{item.full_name} </div>
-                              <div>{item.create_at} </div>
-                            </h5>
-                            <div className="fs-12"></div>
-                          </div>
-                          <div className="rotate-img">
-                            <img
-                              src={item.image}
-                              alt="thumb"
-                              className="img-fluid img-lg"
-                            />
-                          </div>
+                      <div className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between" key={item.id}>
+                        <div className="pr-3 textDetail">
+                          <h5>
+                            <div>{item.full_name} </div>
+                            <div>{item.create_at} </div>
+                          </h5>
+                          <div className="fs-12"></div>
                         </div>
-                      </>
+                        <div className="rotate-img">
+                          <img
+                            src={item.image}
+                            alt="thumb"
+                            className="img-fluid img-lg"
+                          />
+                        </div>
+                      </div>
                     );
                   }
                 })}

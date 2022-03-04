@@ -9,7 +9,7 @@ export default function ContentGallery({ tab, type }: ContentGalleryProps) {
   return (
     <>
       {type.map((item: GalleryDetailResponse, index) => {
-        if (item.typeCow === tab) {
+        if (item.type === tab) {
           return (
             <a
               href={item.image}
