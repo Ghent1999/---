@@ -1,9 +1,13 @@
 import React from "react";
 import ReactCardFlip from "react-card-flip";
 import "../feature/ContantGallery/contantgallery.css";
+import GalleryDetailResponse from "../models/GalleryModel";
 
+interface DataGalleryProps {
+  project: GalleryDetailResponse;
+}
 /* eslint-disable jsx-a11y/alt-text */
-export default function Card({ project }) {
+export default function Card({ project }: DataGalleryProps) {
   const [isFlipped, setIsFlipped] = React.useState(false);
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
