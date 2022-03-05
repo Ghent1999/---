@@ -14,7 +14,7 @@ export default function DataImage() {
   const [tel, setTel] = useState("");
   const [typeCow, setTypeCow] = useState("");
   const [validated, setValidated] = useState(false);
-  const [modalShow, setModalShow] = useState(true);
+  const [modalShow, setModalShow] = useState(false);
 
   const imageChange = (e: { target: { files: string | any[] } }) => {
     if (e.target.files && e.target.files.length > 0) {

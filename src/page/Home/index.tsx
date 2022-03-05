@@ -5,6 +5,7 @@ import TutorialDataService from "../../services/GalleryService";
 import GalleryModel from "../../models/GalleryModel";
 import GalleryDetailResponse from "../../models/GalleryModel";
 import Card from "../../components/CardCow";
+import "../../feature/ContantGallery/contantgallery.css";
 
 export default function HomePage() {
   const [dataArray, setDataArray] = useState([]);
@@ -37,7 +38,7 @@ export default function HomePage() {
 
   const Projects = () => {
     return (
-      <div className="row">
+      <div className="row show">
         {dataArray.map((item: GalleryDetailResponse, index) => {
           if (index < 4) {
             return <Card project={item} key={`card-${index}`} />;
