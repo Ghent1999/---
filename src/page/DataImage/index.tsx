@@ -1,12 +1,9 @@
 import "./dataImageCss.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import TutorialDataService from "../../services/GalleryService";
-import { Form, Modal } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Button from "../../../node_modules/@restart/ui/esm/Button";
-import GalleryModel, {
-  GalleryInsert,
-  ImageGallery,
-} from "../../models/GalleryModel";
+import { GalleryInsert } from "../../models/GalleryModel";
 import { ListType } from "../../enum/ListTypeCow";
 import { format } from "date-fns";
 import Modals from "../../components/Modal";
