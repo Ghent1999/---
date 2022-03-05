@@ -33,10 +33,10 @@ export default function DataImage() {
     }
     setValidated(true);
 
-    if (fullName != "") {
-      if (tel != "") {
-        if (typeCow != "") {
-          if (selectedImage != undefined) {
+    if (fullName !== "") {
+      if (tel !== "") {
+        if (typeCow !== "") {
+          if (selectedImage !== undefined) {
             var date = new Date();
             var formattedDate = format(date, "d/MM/yyyy HH:mm");
             await TutorialDataService.getLastNo().then(
@@ -55,7 +55,6 @@ export default function DataImage() {
                   };
                   await TutorialDataService.addGallery(data)
                     .then(() => {
-                      console.log("ได้ละ");
                       setModalShow(true);
                     })
                     .catch((error) => {
@@ -101,12 +100,14 @@ export default function DataImage() {
 
   return (
     <>
-      {/* <Modals
+      <Modals
         show={modalShow}
         onHide={() => {
           setModalShow(false);
         }}
-      /> */}
+        title="แจ้งเตือน"
+        body="บันทึกข้อมูลสำเร็จ"
+      />
       <div className="form-body">
         <div className="row col-12">
           <div className="form-holder w-100">
