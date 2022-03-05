@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
 export default function ContactPage() {
   return (
     <div className="container-scroller">
@@ -47,6 +46,7 @@ export default function ContactPage() {
                         style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"
+                        title="Map"
                       />
                     </div>
                   </div>

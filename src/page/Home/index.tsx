@@ -42,7 +42,7 @@ export default function HomePage() {
           if (index < 4) {
             return <Card project={item} key={`card-${index}`} />;
           }
-        })}
+        }, {})}
       </div>
     );
   };
