@@ -154,3 +154,9 @@ body {
 .valid-feedback {
   color: #2acc80;
 }
+
+.container.loading {
+  height: 400px;
+  text-align: center;
+  padding-top: 150px;
+}

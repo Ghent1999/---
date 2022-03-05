@@ -109,7 +109,7 @@ export default function DataImage() {
 
   return (
     <>
-      {loading ? (
+      {!loading ? (
         <>
           <Modals
             show={modalShow}
@@ -216,15 +216,9 @@ export default function DataImage() {
           </div>
         </>
       ) : (
-        <Container>
-          <Row>
-            <Col></Col>
-            <Col className="text-center">
+        <div className="container loading" style={{height: 400}}>
               <Spinner animation="border" variant="light" />
-            </Col>
-            <Col></Col>
-          </Row>
-        </Container>
+        </div>
       )}
     </>
   );
