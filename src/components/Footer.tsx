@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 export default function Footer() {
   return (
     <footer>
@@ -9,6 +8,7 @@ export default function Footer() {
               <img
                 src="http://www.chandra.ac.th/uploads/media/files/about/newchandralogo1.png"
                 className="footer-logo mt-4"
+                alt="logo"
               />
             </div>
             <div className="col-sm-6 text-center">

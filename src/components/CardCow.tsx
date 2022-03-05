@@ -6,7 +6,7 @@ import GalleryDetailResponse from "../models/GalleryModel";
 interface DataGalleryProps {
   project: GalleryDetailResponse;
 }
-/* eslint-disable jsx-a11y/alt-text */
+
 export default function Card({ project }: DataGalleryProps) {
   const [isFlipped, setIsFlipped] = React.useState(false);
   return (
@@ -20,8 +20,13 @@ export default function Card({ project }: DataGalleryProps) {
           data-gallery="example-gallery"
           className="col-lg-3 col-md-4 col-6 my-3"
           key={project.id}
+          href="#show"
         >
-          <img src={project.image} className="img-fluid card showmore" />
+          <img
+            src={project.image}
+            className="img-fluid card showmore"
+            alt="card show"
+          />
         </a>
       </div>
       <div
