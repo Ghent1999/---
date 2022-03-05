@@ -1,7 +1,7 @@
 import "./dataImageCss.css";
 import { useState } from "react";
-import TutorialDataService from "../../services/GalleryService";
-import { Form } from "react-bootstrap";
+import GalleryService from "../../services/GalleryService";
+import { Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import Button from "../../../node_modules/@restart/ui/esm/Button";
 import { GalleryInsert } from "../../models/GalleryModel";
 import { ListType } from "../../enum/ListTypeCow";
@@ -15,6 +15,7 @@ export default function DataImage() {
   const [typeCow, setTypeCow] = useState("");
   const [validated, setValidated] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const imageChange = (e: { target: { files: string | any[] } }) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -36,34 +37,45 @@ export default function DataImage() {
           if (selectedImage !== undefined) {
             var date = new Date();
             var formattedDate = format(date, "d/MM/yyyy HH:mm");
-            await TutorialDataService.getLastNo().then(
+            setLoading(true);
+            await GalleryService.getLastNo().then(
               async (number): Promise<void> => {
                 number.no++;
-                await TutorialDataService.uploadImageGallery(
-                  selectedImage
-                ).then(async (url): Promise<void> => {
-                  const data: GalleryInsert = {
-                    no: number.no,
-                    create_at: formattedDate,
-                    full_name: fullName,
-                    tel: tel,
-                    type: typeCow,
-                    image: url.data.link,
-                  };
-                  await TutorialDataService.addGallery(data)
-                    .then(() => {
-                      setModalShow(true);
-                    })
-                    .catch((error) => {
-                      console.log(error);
-                    });
-                });
+                await GalleryService.uploadImageGallery(selectedImage).then(
+                  async (url): Promise<void> => {
+                    const data: GalleryInsert = {
+                      no: number.no,
+                      create_at: formattedDate,
+                      full_name: fullName,
+                      tel: tel,
+                      type: typeCow,
+                      image: url.data.link,
+                    };
+                    await GalleryService.addGallery(data)
+                      .then(() => {
+                        setModalShow(true);
+                        setLoading(false);
+                      })
+                      .catch((error) => {
+                        console.log(error);
+                      });
+                  }
+                );
               }
             );
           }
         }
       }
     }
+  };
+
+  const doneSubmit = () => {
+    setFullName("");
+    setTel("");
+    setTypeCow("");
+    setSelectedImage(undefined);
+    setValidated(false);
+    setModalShow(false);
   };
 
   const styles = {
@@ -97,106 +109,123 @@ export default function DataImage() {
 
   return (
     <>
-      <Modals
-        show={modalShow}
-        onHide={() => {
-          setModalShow(false);
-        }}
-        title="แจ้งเตือน"
-        body="บันทึกข้อมูลสำเร็จ"
-      />
-      <div className="form-body">
-        <div className="row col-12">
-          <div className="form-holder w-100">
-            <div className="form-content">
-              <div className="form-items">
-                <h3>เพิ่มรายละเอียดวัว</h3>
-                <p>กรุณากรอกข้อมูลจริง</p>
-                <Form
-                  className="requires-validation"
-                  noValidate
-                  validated={validated}
-                >
-                  <div className="col-md-12">
-                    <Form.Control
-                      type="text"
-                      placeholder="Full Name"
-                      onChange={(e) => setFullName(e.target.value)}
-                      required
-                    />
-                    <div className="invalid-feedback ml-6 pl-2">
-                      กรุณากรอกชื่อ
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <Form.Control
-                      type="text"
-                      placeholder="Tel : 0987654321"
-                      onChange={(e) => setTel(e.target.value)}
-                      required
-                    />
-                    <div className="invalid-feedback ml-6 pl-2">
-                      กรุณากรอกเบอร์โทร
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <Form.Group>
-                      <Form.Control
-                        as="select"
-                        required
-                        onChange={(e) => setTypeCow(e.target.value)}
-                      >
-                        <option value="">เลือกประเภท</option>
-                        {optionSelect.map((option, index) => {
-                          return (
-                            <option value={option.value} key={index}>
-                              {option.value}
-                            </option>
-                          );
-                        })}
-                      </Form.Control>
-                      <div className="invalid-feedback ml-6 pl-2">
-                        กรุณาเลือกประเภท
-                      </div>
-                    </Form.Group>
-                  </div>
-                  <div className="col-md-12">
-                    <Form.Control
-                      required
-                      accept="image/*"
-                      type="file"
-                      className="form-control mt-3 rounded"
-                      onChange={imageChange as any}
-                    />
-                    {selectedImage && (
-                      <div className="mt-3">
-                        <img
-                          src={URL.createObjectURL(selectedImage)}
-                          style={styles.image}
-                          alt="Thumb"
-                        />
-                      </div>
-                    )}
-                    <div className="invalid-feedback ml-6 pl-2">
-                      กรุณาอัพโหลดรูปภาพ
-                    </div>
-                  </div>
-
-                  <div className="form-button mt-3 text-center">
-                    <Button
-                      onClick={handleSubmit}
-                      id="submit"
-                      className="btn btn-primary col-6"
+      {loading ? (
+        <>
+          <Modals
+            show={modalShow}
+            onHide={() => {
+              doneSubmit();
+            }}
+            title="แจ้งเตือน"
+            body="บันทึกข้อมูลสำเร็จ"
+          />
+          <div className="form-body">
+            <div className="row col-12">
+              <div className="form-holder w-100">
+                <div className="form-content">
+                  <div className="form-items">
+                    <h3>เพิ่มรายละเอียดวัว</h3>
+                    <p>กรุณากรอกข้อมูลจริง</p>
+                    <Form
+                      className="requires-validation"
+                      noValidate
+                      validated={validated}
                     >
-                      Register
-                    </Button>
+                      <div className="col-md-12">
+                        <Form.Control
+                          type="text"
+                          placeholder="Full Name"
+                          onChange={(e) => setFullName(e.target.value)}
+                          required
+                          value={fullName}
+                        />
+                        <div className="invalid-feedback ml-6 pl-2">
+                          กรุณากรอกชื่อ
+                        </div>
+                      </div>
+                      <div className="col-md-12">
+                        <Form.Control
+                          type="text"
+                          placeholder="Tel : 0987654321"
+                          onChange={(e) => setTel(e.target.value)}
+                          required
+                          value={tel}
+                        />
+                        <div className="invalid-feedback ml-6 pl-2">
+                          กรุณากรอกเบอร์โทร
+                        </div>
+                      </div>
+                      <div className="col-md-12">
+                        <Form.Group>
+                          <Form.Control
+                            as="select"
+                            required
+                            onChange={(e) => setTypeCow(e.target.value)}
+                            value={typeCow}
+                          >
+                            <option value="">เลือกประเภท</option>
+                            {optionSelect.map((option, index) => {
+                              return (
+                                <option value={option.value} key={index}>
+                                  {option.value}
+                                </option>
+                              );
+                            })}
+                          </Form.Control>
+                          <div className="invalid-feedback ml-6 pl-2">
+                            กรุณาเลือกประเภท
+                          </div>
+                        </Form.Group>
+                      </div>
+                      <div className="col-md-12">
+                        <Form.Control
+                          required
+                          accept="image/*"
+                          type="file"
+                          className="form-control mt-3 rounded"
+                          onChange={imageChange as any}
+                        />
+                        {selectedImage && (
+                          <div className="mt-3">
+                            <img
+                              src={URL.createObjectURL(selectedImage)}
+                              style={styles.image}
+                              alt="Thumb"
+                            />
+                          </div>
+                        )}
+                        <div className="invalid-feedback ml-6 pl-2">
+                          กรุณาอัพโหลดรูปภาพ
+                        </div>
+                      </div>
+
+                      <div className="form-button mt-3 text-center">
+                        <Button
+                          onClick={handleSubmit}
+                          id="submit"
+                          className="btn btn-primary col-6"
+                        >
+                          Register
+                        </Button>
+                      </div>
+                    </Form>
                   </div>
-                </Form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <Container>
+          <Row>
+            <Col></Col>
+            <Col className="text-center">
+              <Spinner animation="border" variant="light" />
+            </Col>
+            <Col></Col>
+          </Row>
+        </Container>
+      )}
     </>
   );
 }
