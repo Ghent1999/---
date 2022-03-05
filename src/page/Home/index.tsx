@@ -1,8 +1,7 @@
 /* eslint-disable array-callback-return */
 import "./Home.css";
 import { useEffect, useState } from "react";
-import TutorialDataService from "../../services/GalleryService";
-import GalleryModel from "../../models/GalleryModel";
+import GalleryService from "../../services/GalleryService";
 import GalleryDetailResponse from "../../models/GalleryModel";
 import Card from "../../components/CardCow";
 import "../../feature/ContantGallery/contantgallery.css";
@@ -17,7 +16,7 @@ export default function HomePage() {
   }, []);
 
   function GetDataGallery() {
-    TutorialDataService.getAllGallery()
+    GalleryService.getAllGallery()
       .then((response: any) => {
         setDataArray(response.data);
       })
@@ -27,7 +26,7 @@ export default function HomePage() {
   }
 
   function GetDataGallerySort() {
-    TutorialDataService.getAllGallerySort()
+    GalleryService.getAllGallerySort()
       .then((response: any) => {
         setDateSory(response.data);
       })
