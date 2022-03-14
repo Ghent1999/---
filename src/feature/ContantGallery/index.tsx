@@ -1,8 +1,6 @@
 import GalleryDetailResponse from "../../models/GalleryModel";
 import GalleryModel from "../../models/GalleryModel";
 import "./contantgallery.css";
-import ReactCardFlip from "react-card-flip";
-import { useState } from "react";
 import React from "react";
 import Card from "../../components/CardCow";
 interface ContentGalleryProps {
@@ -23,8 +21,8 @@ export default function ContentGallery({ tab, type }: ContentGalleryProps) {
   };
 
   return (
-    <>
+    <span>
       <Projects />
-    </>
+    </span>
   );
 }

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-top">
+      {/* <div className="footer-top">
         <div className="container">
           <div className="row">
             <div className="col-sm-6 text-center">
@@ -18,12 +18,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="footer-bottom">
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
-              <div className="d-sm-flex justify-content-between align-items-center">
+              <div className="d-sm-flex justify-content-between align-items-center mt-3">
                 <div className="fs-14 font-weight-600">
                   © 2022 @ จันทรเกษมชัยนาท. All rights reserved.
                 </div>
