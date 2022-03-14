@@ -1,7 +1,7 @@
 import "./dataImageCss.css";
 import { useState } from "react";
 import GalleryService from "../../services/GalleryService";
-import { Col, Container, Form, Row, Spinner } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import Button from "../../../node_modules/@restart/ui/esm/Button";
 import { GalleryInsert } from "../../models/GalleryModel";
 import { ListType } from "../../enum/ListTypeCow";
@@ -216,8 +216,8 @@ export default function DataImage() {
           </div>
         </>
       ) : (
-        <div className="container loading" style={{height: 400}}>
-              <Spinner animation="border" variant="light" />
+        <div className="container loading" style={{ height: 400 }}>
+          <Spinner animation="border" variant="light" />
         </div>
       )}
     </>
