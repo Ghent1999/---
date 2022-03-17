@@ -1,3 +1,4 @@
+// test
 export default interface GalleryModel {
   data: GalleryResponse[];
 }
@@ -12,7 +13,7 @@ interface GalleryResponse {
   image: string;
 }
 
-export interface GalleryInsert{
+export interface GalleryInsert {
   no: number;
   create_at: string;
   full_name: string;
@@ -21,7 +22,7 @@ export interface GalleryInsert{
   image: string;
 }
 
-export interface ImageGallery{
+export interface ImageGallery {
   link: string;
 }
 
@@ -34,4 +35,3 @@ export default interface GalleryDetailResponse {
   type: string;
   image: string;
 }
-
