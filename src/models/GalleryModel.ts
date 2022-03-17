@@ -1,4 +1,3 @@
-// test
 export default interface GalleryModel {
   data: GalleryResponse[];
 }
