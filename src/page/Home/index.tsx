@@ -54,8 +54,8 @@ export default function HomePage() {
           <div className="col-xl-8 stretch-card grid-margin">
             <div className="position-relative">
               <img
-                src="assets/images/dashboard/Cows.jpg"
-                alt="banner"
+                src="assets/images/วัวไทย.jpeg"
+                alt="วัวไทย"
                 width="1450"
                 height="820"
                 className="img-fluid"
@@ -64,7 +64,7 @@ export default function HomePage() {
                 <div className="badge badge-danger fs-12 font-weight-bold mb-3">
                   วัดเสมียนนารี - จันทรเกษมชัยนาท
                 </div>
-                <h1 className="mb-5 fs-16">
+                <h1 className="mb-5 fs-16 text-white bg-dark">
                   - เป็นฐานข้อมูลภาพโคแบบเปิด (Cow Open Dataset) โดยรวบรวมจากโค
                   28 ตัว ของมหาวิทยาลัยราชภัฏจันทรเกษม-ชัยนาท -
                   สามารถนำไปใช้ในการทำวิจัยได้ฟรี ตาม Creative Commons
