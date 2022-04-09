@@ -10,6 +10,7 @@ import Modals from "../../components/Modal";
 
 export default function DataImage() {
   const [selectedImage, setSelectedImage] = useState<any>();
+  const [fullNamePerson, setFullNamePerson] = useState("");
   const [fullName, setFullName] = useState("");
   const [tel, setTel] = useState("");
   const [typeCow, setTypeCow] = useState("");
@@ -70,6 +71,7 @@ export default function DataImage() {
   };
 
   const doneSubmit = () => {
+    setFullNamePerson("");
     setFullName("");
     setTel("");
     setTypeCow("");
@@ -137,19 +139,31 @@ export default function DataImage() {
                       <div className="col-md-12">
                         <Form.Control
                           type="text"
-                          placeholder="Full Name"
-                          onChange={(e) => setFullName(e.target.value)}
+                          placeholder="กรุณากรอกชื่อเจ้าของวัว"
+                          onChange={(e) => setFullNamePerson(e.target.value)}
                           required
-                          value={fullName}
+                          value={fullNamePerson}
                         />
                         <div className="invalid-feedback ml-6 pl-2">
-                          กรุณากรอกชื่อ
+                          กรุณากรอกชื่อวัว
                         </div>
                       </div>
                       <div className="col-md-12">
                         <Form.Control
                           type="text"
-                          placeholder="Tel : 0987654321"
+                          placeholder="กรุณากรอกชื่อวัว"
+                          onChange={(e) => setFullName(e.target.value)}
+                          required
+                          value={fullName}
+                        />
+                        <div className="invalid-feedback ml-6 pl-2">
+                          กรุณากรอกชื่อวัว
+                        </div>
+                      </div>
+                      <div className="col-md-12">
+                        <Form.Control
+                          type="text"
+                          placeholder="กรุณากรอกเบอร์โทร"
                           onChange={(e) => setTel(e.target.value)}
                           required
                           value={tel}
