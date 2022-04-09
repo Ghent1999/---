@@ -110,7 +110,7 @@ export default function HomePage() {
           <div className="col-lg-3 stretch-card grid-margin">
             <div className="card">
               <div className="card-header bg-primary">
-                <h3 className="text-white">Category</h3>
+                <h4 className="text-white">เมนูเว็บไซต์ศูนย์การเรียนรู้</h4>
               </div>
               <div className="card-body">
                 <ul className="vertical-menu">
