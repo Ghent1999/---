@@ -105,6 +105,9 @@ export default function DataImage() {
     {
       value: ListType.STOOL,
     },
+    {
+      value: ListType.FOOT,
+    },
   ];
 
   return (

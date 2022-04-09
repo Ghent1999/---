@@ -4,4 +4,5 @@ export enum ListType {
   RIGHTSIDE = "ลายวัวข้างขวา",
   HAUNCH = "บั้นท้าย",
   STOOL = "อุจระ",
+  FOOT = "รอยเท้า",
 }

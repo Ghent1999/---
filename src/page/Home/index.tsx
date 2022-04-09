@@ -148,7 +148,9 @@ export default function HomePage() {
           <div className="col-lg-9 stretch-card grid-margin">
             <div className="card scroll">
               <div className="card-header bg-primary">
-                <h3 className="text-white">ข่าวประชาสัมพันธ์</h3>
+                <h3 className="text-white">
+                  ข่าวประชาสัมพันธ์จันทรเกษม-ชัยนาท
+                </h3>
               </div>
               <div className="card-body ">
                 <div className="row ">

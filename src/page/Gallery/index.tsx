@@ -89,6 +89,18 @@ export default function Gallery() {
             </div>
           </div>
         </Tab>
+        <Tab eventKey={ListType.FOOT} title={ListType.FOOT}>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h1 className="text-white mt-3">{ListType.FOOT}</h1>
+                <div className="row">
+                  <ContentGallery tab={ListType.FOOT} type={dataArray} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Tab>
       </Tabs>
     </>
   );
