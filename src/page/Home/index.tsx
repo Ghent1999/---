@@ -115,11 +115,7 @@ export default function HomePage() {
               <div className="card-body">
                 <ul className="vertical-menu">
                   <li>
-                    <a
-                      href="https://chainat.chandra.ac.th/index.php/2015-12-22-05-02-29"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href="/history-learning" rel="noreferrer">
                       ประวัติศูนย์การเรียนรู้โคจันทรเกษมชัยนาท
                     </a>
                   </li>
