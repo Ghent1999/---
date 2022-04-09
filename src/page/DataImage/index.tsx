@@ -31,42 +31,42 @@ export default function DataImage() {
       event.stopPropagation();
     }
     setValidated(true);
-
-    if (fullName !== "") {
-      if (tel !== "") {
-        if (typeCow !== "") {
-          if (selectedImage !== undefined) {
-            var date = new Date();
-            var formattedDate = format(date, "d/MM/yyyy HH:mm");
-            setLoading(true);
-            await GalleryService.getLastNo().then(
-              async (number): Promise<void> => {
-                number.no++;
-                await GalleryService.uploadImageGallery(selectedImage).then(
-                  async (url): Promise<void> => {
-                    const data: GalleryInsert = {
-                      no: number.no,
-                      create_at: formattedDate,
-                      full_name: fullName,
-                      tel: tel,
-                      type: typeCow,
-                      image: url.data.link,
-                    };
-                    await GalleryService.addGallery(data)
-                      .then(() => {
-                        setModalShow(true);
-                        setLoading(false);
-                      })
-                      .catch((error) => {
-                        console.log(error);
-                      });
-                  }
-                );
-              }
-            );
-          }
+    if (
+      fullNamePerson !== "" &&
+      fullName !== "" &&
+      tel !== "" &&
+      typeCow !== "" &&
+      selectedImage !== undefined
+    ) {
+      var date = new Date();
+      var formattedDate = format(date, "d/MM/yyyy HH:mm");
+      setLoading(true);
+      await GalleryService.getLastNo().then(async (number): Promise<void> => {
+        if (number?.no !== undefined) {
+          number.no++;
         }
-      }
+        await GalleryService.uploadImageGallery(selectedImage).then(
+          async (url): Promise<void> => {
+            const data: GalleryInsert = {
+              no: number?.no ?? 1,
+              create_at: formattedDate,
+              full_name_owner: fullNamePerson,
+              full_name: fullName,
+              tel: tel,
+              type: typeCow,
+              image: url.data.link,
+            };
+            await GalleryService.addGallery(data)
+              .then(() => {
+                setModalShow(true);
+                setLoading(false);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
+        );
+      });
     }
   };
 
@@ -145,7 +145,7 @@ export default function DataImage() {
                           value={fullNamePerson}
                         />
                         <div className="invalid-feedback ml-6 pl-2">
-                          กรุณากรอกชื่อวัว
+                          กรุณากรอกชื่อเจ้าของวัว
                         </div>
                       </div>
                       <div className="col-md-12">
