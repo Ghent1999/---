@@ -120,6 +120,11 @@ export default function HomePage() {
                     </a>
                   </li>
                   <li>
+                    <a href="/person" rel="noreferrer">
+                      สมาชิกศูนย์การเรียนรู้โคจันทรเกษม-ชัยนาท
+                    </a>
+                  </li>
+                  <li>
                     <a
                       href="https://eregist.dld.go.th"
                       target="_blank"

@@ -5,7 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DataImage from "./page/DataImage";
 import Gallery from "./page/Gallery";
 import ContactPage from "./page/Contact/ContactPage";
-import HistoryLearning from "./page/history-learning";
+import HistoryLearning from "./page/History-learning";
+import Person from "./page/Person";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               path="/history-learning"
               element={<HistoryLearning />}
             ></Route>
+            <Route path="/person" element={<Person />}></Route>
           </Routes>
         </BrowserRouter>
         <Footer />
