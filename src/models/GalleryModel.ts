@@ -15,6 +15,7 @@ interface GalleryResponse {
 export interface GalleryInsert {
   no: number;
   create_at: string;
+  full_name_owner: string;
   full_name: string;
   tel: string;
   type: string;
