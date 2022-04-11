@@ -31,34 +31,45 @@ export default function Person() {
                     <div className="card-body">
                       <div className="form-group">
                         <div className="row">
-                          <div className="col-3">
+                          <div className="col-12">
                             <img
                               src="https://chainat.chandra.ac.th/images/pic2564/wj.jpg"
                               alt="contact detail"
                               className="img-fluid rounded"
                             />
                           </div>
-                          <div className="col-3">
+                          <div className="col-2"></div>
+                          <div className="col-4">
+                            <img
+                              src="https://chainat.chandra.ac.th/images/pic2564/sarin-64.jpg"
+                              alt="contact detail"
+                              className="img-fluid rounded"
+                            />
+                          </div>
+                          <div className="col-4">
                             <img
                               src="https://chainat.chandra.ac.th/images/pic2564/pakpoom-64.jpg"
                               alt="contact detail"
                               className="img-fluid rounded"
                             />
                           </div>
-                          <div className="col-3">
+                          <div className="col-2"></div>
+                          <div className="col-2"></div>
+                          <div className="col-4">
                             <img
                               src="https://cdn.discordapp.com/attachments/937683907086807121/961986196857303060/unknown.png"
                               alt="contact detail"
                               className="img-fluid rounded"
                             />
                           </div>
-                          <div className="col-3">
+                          <div className="col-4">
                             <img
                               src="https://cdn.discordapp.com/attachments/937683907086807121/961986249504194580/unknown.png"
                               alt="contact detail"
                               className="img-fluid rounded"
                             />
                           </div>
+                          <div className="col-2"></div>
                         </div>
                       </div>
                     </div>
