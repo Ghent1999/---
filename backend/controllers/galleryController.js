@@ -182,6 +182,16 @@ const deleteAccount = async (req, res, next) => {
   }
 };
 
+const getDownloadImages = async (req, res, next) => {
+  try {
+    const Account = await firestore.collection("gallery");
+    const data = await Account.get();
+    return res.status(200).send(data.data());
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
   addGallery,
   getAllGallery,
@@ -191,4 +201,5 @@ module.exports = {
   updateAccount,
   deleteAccount,
   uploadImageGallery,
+  getDownloadImages,
 };
