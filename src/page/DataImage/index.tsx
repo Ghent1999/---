@@ -216,6 +216,26 @@ export default function DataImage() {
                         </div>
                       </div>
 
+                      <div className="captcha">
+                        <div className="spinner">
+                          <label>
+                            <input
+                              type="checkbox"
+                              //   onclick="$(this).attr('disabled','disabled');"
+                            />
+                            <span className="checkmark">
+                              <span>&nbsp;</span>
+                            </span>
+                          </label>
+                        </div>
+                        <div className="text">I'm not a robot</div>
+                        <div className="logo">
+                          <img src="https://forum.nox.tv/core/index.php?media/9-recaptcha-png/" />
+                          <p>reCAPTCHA</p>
+                          <small>Privacy - Terms</small>
+                        </div>
+                      </div>
+
                       <div className="form-button mt-3 text-center">
                         <Button
                           onClick={handleSubmit}

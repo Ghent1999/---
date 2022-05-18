@@ -37,7 +37,6 @@ export default function Card({ project }: DataGalleryProps) {
         <div className="font">เบอร์โทร : {project.tel}</div>
         <div className="font">วันที่ : {project.create_at}</div>
         <div className="font">ประเภท : {project.type}</div>
-        {/* button */}
         <div className="font">
           <button
             className="btn btn-primary btn-lg btn-block"
@@ -48,7 +47,7 @@ export default function Card({ project }: DataGalleryProps) {
               );
             }}
           >
-            Download All Images
+            Download
           </button>
         </div>
       </div>
