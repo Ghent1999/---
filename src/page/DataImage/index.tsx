@@ -17,6 +17,7 @@ export default function DataImage() {
   const [validated, setValidated] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [captcha, setCaptcha] = useState<boolean | undefined>(false);
 
   const imageChange = (e: { target: { files: string | any[] } }) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -36,7 +37,8 @@ export default function DataImage() {
       fullName !== "" &&
       tel !== "" &&
       typeCow !== "" &&
-      selectedImage !== undefined
+      selectedImage !== undefined &&
+      captcha === true
     ) {
       var date = new Date();
       var formattedDate = format(date, "d/MM/yyyy HH:mm");
@@ -216,12 +218,12 @@ export default function DataImage() {
                         </div>
                       </div>
 
-                      <div className="captcha">
+                      <div className="captcha mt-3">
                         <div className="spinner">
                           <label>
                             <input
                               type="checkbox"
-                              //   onclick="$(this).attr('disabled','disabled');"
+                              onChange={(e) => setCaptcha(e.target.checked)}
                             />
                             <span className="checkmark">
                               <span>&nbsp;</span>
@@ -230,7 +232,10 @@ export default function DataImage() {
                         </div>
                         <div className="text">I'm not a robot</div>
                         <div className="logo">
-                          <img src="https://forum.nox.tv/core/index.php?media/9-recaptcha-png/" />
+                          <img
+                            src="https://forum.nox.tv/core/index.php?media/9-recaptcha-png/"
+                            alt="captcha"
+                          />
                           <p>reCAPTCHA</p>
                           <small>Privacy - Terms</small>
                         </div>
