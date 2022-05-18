@@ -4,6 +4,11 @@ const rateLimit = require("express-rate-limit");
 const firestore = firebase.firestore();
 const storage = require("../storage");
 const bucket = storage.bucket();
+const fs = require("fs"),
+  http = require("http"),
+  https = require("https");
+const Stream = require("stream").Transform;
+const zip = require("express-zip");
 
 const getAllGallery = async (req, res, next) => {
   try {
@@ -182,11 +187,50 @@ const deleteAccount = async (req, res, next) => {
   }
 };
 
+var downloadImageFromURL = (url, filename, callback) => {
+  var client = http;
+  if (url.toString().indexOf("https") === 0) {
+    client = https;
+  }
+
+  client
+    .request(url, function (response) {
+      var data = new Stream();
+
+      response.on("data", function (chunk) {
+        data.push(chunk);
+      });
+
+      response.on("end", function () {
+        fs.writeFileSync(filename, data.read());
+      });
+    })
+    .end();
+  callback();
+};
+
 const getDownloadImages = async (req, res, next) => {
   try {
-    const Account = await firestore.collection("gallery");
-    const data = await Account.get();
-    return res.status(200).send(data.data());
+    const data = await firestore.collection("gallery").get();
+    const dataCowArray = [];
+    data.forEach((doc) => {
+      downloadImageFromURL(
+        doc.data().image,
+        `./file/${doc.id}.jpg`,
+        function (err) {
+          if (err) {
+            console.log(err);
+          } else {
+            dataCowArray.push({
+              path: `./file/${doc.id}.jpg`,
+              name: `${doc.id}.jpg`,
+            });
+          }
+        }
+      );
+    });
+
+    return res.zip(dataCowArray, "images.zip");
   } catch (error) {
     return res.status(400).send(error.message);
   }
