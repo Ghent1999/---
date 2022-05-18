@@ -37,6 +37,20 @@ export default function Card({ project }: DataGalleryProps) {
         <div className="font">เบอร์โทร : {project.tel}</div>
         <div className="font">วันที่ : {project.create_at}</div>
         <div className="font">ประเภท : {project.type}</div>
+        {/* button */}
+        <div className="font">
+          <button
+            className="btn btn-primary btn-lg btn-block"
+            onClick={() => {
+              window.open(
+                `https://api-cow.herokuapp.com/api/download/${project.no}`,
+                "_blank"
+              );
+            }}
+          >
+            Download All Images
+          </button>
+        </div>
       </div>
     </ReactCardFlip>
   );

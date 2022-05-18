@@ -235,6 +235,29 @@ const getDownloadImages = async (req, res, next) => {
   }
 };
 
+const getDownloadImagesByNo = async (req, res, next) => {
+  try {
+    const no = req.params.no;
+    const data = await firestore
+      .collection("gallery")
+      .where("no", "==", Number(no));
+    const response = await data.get();
+    downloadImageFromURL(
+      response.docs[0].data().image,
+      `./file/${response.docs[0].id}.jpg`,
+      function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          return res.download(`./file/${response.docs[0].id}.jpg`);
+        }
+      }
+    );
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
   addGallery,
   getAllGallery,
@@ -245,4 +268,5 @@ module.exports = {
   deleteAccount,
   uploadImageGallery,
   getDownloadImages,
+  getDownloadImagesByNo,
 };

@@ -1,7 +1,6 @@
 import GalleryDetailResponse from "../../models/GalleryModel";
 import GalleryModel from "../../models/GalleryModel";
 import "./contantgallery.css";
-import React from "react";
 import Card from "../../components/CardCow";
 interface ContentGalleryProps {
   tab: string;

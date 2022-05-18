@@ -16,6 +16,7 @@ const {
   deleteAccount,
   uploadImageGallery,
   getDownloadImages,
+  getDownloadImagesByNo,
 } = require("../controllers/galleryController");
 
 const router = express.Router();
@@ -31,6 +32,7 @@ router.post("/gallery/uploadimage", multer.single("img"), uploadImageGallery);
 
 // download image
 router.get("/download/all", getDownloadImages);
+router.get("/download/:no", getDownloadImagesByNo);
 
 module.exports = {
   routes: router,

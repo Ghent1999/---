@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Tab, Tabs } from "react-bootstrap";
+import { Col, Row, Tab, Tabs } from "react-bootstrap";
 import { ListType } from "../../enum/ListTypeCow";
 import ContentGallery from "../../feature/ContantGallery";
 import TutorialDataService from "../../services/GalleryService";
@@ -33,7 +33,24 @@ export default function Gallery() {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h1 className="text-white mt-3">{ListType.NOSE}</h1>
+                <Row>
+                  <Col>
+                    <h1 className="text-white mt-3">{ListType.NOSE}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
+                </Row>
                 <div className="row">
                   <ContentGallery tab={ListType.NOSE} type={dataArray} />
                 </div>
@@ -45,7 +62,24 @@ export default function Gallery() {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h1 className="text-white mt-3">{ListType.LEFTSIDE}</h1>
+                <Row>
+                  <Col>
+                    <h1 className="text-white mt-3">{ListType.LEFTSIDE}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
+                </Row>
                 <div className="row">
                   <ContentGallery tab={ListType.LEFTSIDE} type={dataArray} />
                 </div>
@@ -57,7 +91,24 @@ export default function Gallery() {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h1 className="text-white mt-3">{ListType.RIGHTSIDE}</h1>
+                <Row>
+                  <Col>
+                    <h1 className="text-white mt-3">{ListType.RIGHTSIDE}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
+                </Row>
                 <div className="row">
                   <ContentGallery tab={ListType.RIGHTSIDE} type={dataArray} />
                 </div>
@@ -69,7 +120,24 @@ export default function Gallery() {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h1 className="text-white mt-3">{ListType.HAUNCH}</h1>
+                <Row>
+                  <Col>
+                    <h1 className="text-white mt-3">{ListType.HAUNCH}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
+                </Row>
                 <div className="row">
                   <ContentGallery tab={ListType.HAUNCH} type={dataArray} />
                 </div>
@@ -81,7 +149,24 @@ export default function Gallery() {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h1 className="text-white mt-3">{ListType.STOOL}</h1>
+                <Row>
+                  <Col>
+                    <h1 className="text-white mt-3">{ListType.STOOL}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
+                </Row>
                 <div className="row">
                   <ContentGallery tab={ListType.STOOL} type={dataArray} />
                 </div>
@@ -93,7 +178,24 @@ export default function Gallery() {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h1 className="text-white mt-3">{ListType.FOOT}</h1>
+                <Row>
+                  <Col>
+                    <h1 className="text-white mt-3">{ListType.FOOT}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
+                </Row>
                 <div className="row">
                   <ContentGallery tab={ListType.FOOT} type={dataArray} />
                 </div>
