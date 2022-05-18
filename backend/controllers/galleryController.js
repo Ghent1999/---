@@ -1,6 +1,5 @@
 const firebase = require("../db");
 const Gallery = require("../models/gallery");
-const rateLimit = require("express-rate-limit");
 const firestore = firebase.firestore();
 const storage = require("../storage");
 const bucket = storage.bucket();
