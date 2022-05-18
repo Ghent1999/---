@@ -27,7 +27,7 @@ export default function DataImage() {
 
   const handleSubmit = async (event: any) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+    if (form.checkValidity() === false || captcha === false) {
       event.preventDefault();
       event.stopPropagation();
     }
@@ -38,7 +38,7 @@ export default function DataImage() {
       tel !== "" &&
       typeCow !== "" &&
       selectedImage !== undefined &&
-      captcha === true
+      captcha
     ) {
       var date = new Date();
       var formattedDate = format(date, "d/MM/yyyy HH:mm");
@@ -80,6 +80,7 @@ export default function DataImage() {
     setSelectedImage(undefined);
     setValidated(false);
     setModalShow(false);
+    setCaptcha(false);
   };
 
   const styles = {
