@@ -5,8 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DataImage from "./page/DataImage";
 import Gallery from "./page/Gallery";
 import ContactPage from "./page/Contact/ContactPage";
-import HistoryLearning from "./page/History-learning";
 import Person from "./page/Person";
+import HistoryLearning from "./page/history-learning";
 
 function App() {
   return (
