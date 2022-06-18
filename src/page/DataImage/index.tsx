@@ -115,6 +115,27 @@ export default function DataImage() {
     },
   ];
 
+  const breedSelect = [
+    {
+      value: ListType.NOSE,
+    },
+    {
+      value: ListType.LEFTSIDE,
+    },
+    {
+      value: ListType.RIGHTSIDE,
+    },
+    {
+      value: ListType.HAUNCH,
+    },
+    {
+      value: ListType.STOOL,
+    },
+    {
+      value: ListType.FOOT,
+    },
+  ];
+
   return (
     <>
       {!loading ? (
@@ -174,6 +195,28 @@ export default function DataImage() {
                         <div className="invalid-feedback ml-6 pl-2">
                           กรุณากรอกเบอร์โทร
                         </div>
+                      </div>
+                      <div className="col-md-12">
+                        <Form.Group>
+                          <Form.Control
+                            as="select"
+                            required
+                            onChange={(e) => setTypeCow(e.target.value)}
+                            value={typeCow}
+                          >
+                            <option value="">เลือกพันธุ์วัว</option>
+                            {breedSelect.map((breed, index) => {
+                              return (
+                                <option value={breed.value} key={index}>
+                                  {breed.value}
+                                </option>
+                              );
+                            })}
+                          </Form.Control>
+                          <div className="invalid-feedback ml-6 pl-2">
+                            กรุณาเลือกประเภท
+                          </div>
+                        </Form.Group>
                       </div>
                       <div className="col-md-12">
                         <Form.Group>
