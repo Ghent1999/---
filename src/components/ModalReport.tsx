@@ -35,6 +35,9 @@ export default function ModalsReport({
         <Button onClick={onHide} className="bg-success">
           ตกลง
         </Button>
+        <Button onClick={onHide} className="bg-danger">
+          ยกเลิก
+        </Button>
       </Modal.Footer>
     </Modal>
   );
