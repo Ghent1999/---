@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Col, Row, Tab, Tabs } from "react-bootstrap";
+import ModalsReport from "../../components/ModalReport";
 import { ListType } from "../../enum/ListTypeCow";
 import ContentGallery from "../../feature/ContantGallery";
 import TutorialDataService from "../../services/GalleryService";
@@ -7,6 +8,7 @@ import "./gallery.css";
 
 export default function Gallery() {
   const [dataArray, setDataArray] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     GetDataGallery();
@@ -24,6 +26,13 @@ export default function Gallery() {
 
   return (
     <>
+      <ModalsReport
+        show={modalShow}
+        onHide={() => {}}
+        title="แจ้งเตือน"
+        body="ยืนยันรายงานรูปภาพ"
+      />
+      ;
       <Tabs
         defaultActiveKey={ListType.NOSE}
         id="uncontrolled-tab-example"
@@ -50,9 +59,26 @@ export default function Gallery() {
                       Download All Images
                     </button>
                   </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
                 </Row>
                 <div className="row">
-                  <ContentGallery tab={ListType.NOSE} type={dataArray} />
+                  <ContentGallery
+                    tab={ListType.NOSE}
+                    setModalShow={setModalShow}
+                    type={dataArray}
+                  />
                 </div>
               </div>
             </div>
@@ -81,7 +107,11 @@ export default function Gallery() {
                   </Col>
                 </Row>
                 <div className="row">
-                  <ContentGallery tab={ListType.LEFTSIDE} type={dataArray} />
+                  <ContentGallery
+                    tab={ListType.LEFTSIDE}
+                    setModalShow={setModalShow}
+                    type={dataArray}
+                  />
                 </div>
               </div>
             </div>
@@ -110,7 +140,11 @@ export default function Gallery() {
                   </Col>
                 </Row>
                 <div className="row">
-                  <ContentGallery tab={ListType.RIGHTSIDE} type={dataArray} />
+                  <ContentGallery
+                    tab={ListType.RIGHTSIDE}
+                    setModalShow={setModalShow}
+                    type={dataArray}
+                  />
                 </div>
               </div>
             </div>
@@ -139,7 +173,11 @@ export default function Gallery() {
                   </Col>
                 </Row>
                 <div className="row">
-                  <ContentGallery tab={ListType.HAUNCH} type={dataArray} />
+                  <ContentGallery
+                    tab={ListType.HAUNCH}
+                    setModalShow={setModalShow}
+                    type={dataArray}
+                  />
                 </div>
               </div>
             </div>
@@ -168,7 +206,11 @@ export default function Gallery() {
                   </Col>
                 </Row>
                 <div className="row">
-                  <ContentGallery tab={ListType.STOOL} type={dataArray} />
+                  <ContentGallery
+                    tab={ListType.STOOL}
+                    setModalShow={setModalShow}
+                    type={dataArray}
+                  />
                 </div>
               </div>
             </div>
@@ -197,7 +239,11 @@ export default function Gallery() {
                   </Col>
                 </Row>
                 <div className="row">
-                  <ContentGallery tab={ListType.FOOT} type={dataArray} />
+                  <ContentGallery
+                    tab={ListType.FOOT}
+                    setModalShow={setModalShow}
+                    type={dataArray}
+                  />
                 </div>
               </div>
             </div>

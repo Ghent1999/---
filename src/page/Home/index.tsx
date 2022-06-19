@@ -10,6 +10,7 @@ import Banner from "../../components/Banner";
 export default function HomePage() {
   const [dataArray, setDataArray] = useState([]);
   const [dataSort, setDateSort] = useState<GalleryDetailResponse[]>();
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     GetDataGallery();
@@ -41,7 +42,13 @@ export default function HomePage() {
       <div className="row show">
         {dataArray.map((item: GalleryDetailResponse, index) => {
           if (index < 4) {
-            return <Card project={item} key={`card-${index}`} />;
+            return (
+              <Card
+                project={item}
+                setModalShow={setModalShow}
+                key={`card-${index}`}
+              />
+            );
           }
         }, {})}
       </div>

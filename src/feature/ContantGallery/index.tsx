@@ -5,14 +5,25 @@ import Card from "../../components/CardCow";
 interface ContentGalleryProps {
   tab: string;
   type: GalleryModel[];
+  setModalShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export default function ContentGallery({ tab, type }: ContentGalleryProps) {
+export default function ContentGallery({
+  tab,
+  type,
+  setModalShow,
+}: ContentGalleryProps) {
   const Projects = () => {
     return (
       <div className="row">
         {type.map((item: GalleryDetailResponse, index: number) => {
           if (item.type === tab) {
-            return <Card project={item} key={`card-${index}`} />;
+            return (
+              <Card
+                project={item}
+                setModalShow={setModalShow}
+                key={`card-${index}`}
+              />
+            );
           }
         })}
       </div>
