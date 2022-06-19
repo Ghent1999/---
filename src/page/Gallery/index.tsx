@@ -28,7 +28,9 @@ export default function Gallery() {
     <>
       <ModalsReport
         show={modalShow}
-        onHide={() => {}}
+        onHide={() => {
+          setModalShow(false);
+        }}
         title="แจ้งเตือน"
         body="ยืนยันรายงานรูปภาพ"
       />
