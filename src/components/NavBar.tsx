@@ -1,3 +1,5 @@
+import MenuList, { MenuListModel } from "../models/MenuModel";
+
 export default function NavBar() {
   return (
     <header id="header">
@@ -42,26 +44,13 @@ export default function NavBar() {
                       <i className="mdi mdi-close" />
                     </button>
                   </li>
-                  <li className="nav-item active">
-                    <a className="nav-link" href="/">
-                      Home
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="/contact">
-                      Contact
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="/data-image">
-                      Data image
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="/gallery">
-                      Gallery
-                    </a>
-                  </li>
+                  {MenuList.map((item: MenuListModel, index) => (
+                    <li className="nav-item" key={index}>
+                      <a className="nav-link" href={item.path}>
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
