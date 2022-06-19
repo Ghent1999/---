@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "react-bootstrap/esm/Button";
 import ReactCardFlip from "react-card-flip";
 import "../feature/ContantGallery/contantgallery.css";
 import GalleryDetailResponse from "../models/GalleryModel";
+import Modals from "./Modal";
 
 interface DataGalleryProps {
   project: GalleryDetailResponse;
+  setModalShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Card({ project }: DataGalleryProps) {
+export default function Card({ project, setModalShow }: DataGalleryProps) {
   const [isFlipped, setIsFlipped] = React.useState(false);
+
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
       <div
@@ -37,7 +41,7 @@ export default function Card({ project }: DataGalleryProps) {
         <div className="font">เบอร์โทร : {project.tel}</div>
         <div className="font">วันที่ : {project.create_at}</div>
         <div className="font">ประเภท : {project.type}</div>
-        <div className="font">
+        <div className="font my-3">
           <button
             className="btn btn-primary btn-lg btn-block"
             onClick={() => {
@@ -48,6 +52,16 @@ export default function Card({ project }: DataGalleryProps) {
             }}
           >
             Download
+          </button>
+        </div>
+        <div className="font">
+          <button
+            className="btn btn-danger btn-lg btn-block"
+            onClick={() => {
+              setModalShow(true);
+            }}
+          >
+            รายงานรูปภาพ
           </button>
         </div>
       </div>
