@@ -14,6 +14,8 @@ export default function LoginPage() {
       password === process.env.REACT_APP_PASSWORD
     ) {
       navigate("/admin");
+    } else {
+      alert("Username or password is wrong");
     }
   };
 
