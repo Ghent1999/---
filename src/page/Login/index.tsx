@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 export default function LoginPage() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSubmit = () => {
     console.log("test");
   };
@@ -19,11 +23,21 @@ export default function LoginPage() {
                 onSubmit={handleSubmit}
               >
                 <div className="col-md-12">
-                  <Form.Control type="text" placeholder="username" required />
+                  <Form.Control
+                    type="text"
+                    placeholder="username"
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
                   <div className="invalid-feedback ml-6 pl-2">username</div>
                 </div>
                 <div className="col-md-12">
-                  <Form.Control type="text" placeholder="password" required />
+                  <Form.Control
+                    type="password"
+                    placeholder="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
                   <div className="invalid-feedback ml-6 pl-2">password</div>
                 </div>
 
