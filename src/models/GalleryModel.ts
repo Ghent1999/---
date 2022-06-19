@@ -2,7 +2,7 @@ export default interface GalleryModel {
   data: GalleryResponse[];
 }
 
-interface GalleryResponse {
+export interface GalleryResponse {
   id: string;
   no: number;
   create_at: string;
