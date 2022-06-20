@@ -7,3 +7,8 @@
   border-bottom: 1px dotted orange;
   margin-top: 1em;
 }
+
+select.btn-primary.btn-lg.breed.form-control {
+  border-radius: 4px;
+  width: 250px;
+}

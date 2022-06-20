@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Row, Tab, Tabs } from "react-bootstrap";
+import { Col, Dropdown, Form, Row, Tab, Tabs } from "react-bootstrap";
 import ModalsReport from "../../components/ModalReport";
 import { ListType } from "../../enum/ListTypeCow";
 import ContentGallery from "../../feature/ContantGallery";
@@ -9,6 +9,7 @@ import "./gallery.css";
 export default function Gallery() {
   const [dataArray, setDataArray] = useState([]);
   const [modalShow, setModalShow] = useState(false);
+  const [typeCow, setTypeCow] = useState("ทั้งหมด");
 
   useEffect(() => {
     GetDataGallery();
@@ -23,6 +24,27 @@ export default function Gallery() {
         console.log(e);
       });
   }
+
+  const optionSelect = [
+    {
+      value: ListType.NOSE,
+    },
+    {
+      value: ListType.LEFTSIDE,
+    },
+    {
+      value: ListType.RIGHTSIDE,
+    },
+    {
+      value: ListType.HAUNCH,
+    },
+    {
+      value: ListType.STOOL,
+    },
+    {
+      value: ListType.FOOT,
+    },
+  ];
 
   return (
     <>
@@ -50,7 +72,7 @@ export default function Gallery() {
                   </Col>
                   <Col>
                     <button
-                      className="btn btn-primary btn-lg btn-block"
+                      className="btn btn-primary btn-lg"
                       onClick={() => {
                         window.open(
                           "https://api-cow.herokuapp.com/api/download/all",
@@ -62,17 +84,24 @@ export default function Gallery() {
                     </button>
                   </Col>
                   <Col>
-                    <button
-                      className="btn btn-primary btn-lg btn-block"
-                      onClick={() => {
-                        window.open(
-                          "https://api-cow.herokuapp.com/api/download/all",
-                          "_blank"
-                        );
-                      }}
-                    >
-                      Download All Images
-                    </button>
+                    <Form.Group>
+                      <Form.Control
+                        className="btn-primary btn-lg breed"
+                        as="select"
+                        required
+                        onChange={(e) => setTypeCow(e.target.value)}
+                        value={typeCow}
+                      >
+                        <option value="">ทั้งหมด</option>
+                        {optionSelect.map((option, index) => {
+                          return (
+                            <option value={option.value} key={index}>
+                              {option.value}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <div className="row">
@@ -93,6 +122,19 @@ export default function Gallery() {
                 <Row>
                   <Col>
                     <h1 className="text-white mt-3">{ListType.LEFTSIDE}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
                   </Col>
                   <Col>
                     <button
@@ -140,6 +182,19 @@ export default function Gallery() {
                       Download All Images
                     </button>
                   </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
                 </Row>
                 <div className="row">
                   <ContentGallery
@@ -159,6 +214,19 @@ export default function Gallery() {
                 <Row>
                   <Col>
                     <h1 className="text-white mt-3">{ListType.HAUNCH}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
                   </Col>
                   <Col>
                     <button
@@ -206,6 +274,19 @@ export default function Gallery() {
                       Download All Images
                     </button>
                   </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
+                  </Col>
                 </Row>
                 <div className="row">
                   <ContentGallery
@@ -225,6 +306,19 @@ export default function Gallery() {
                 <Row>
                   <Col>
                     <h1 className="text-white mt-3">{ListType.FOOT}</h1>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      onClick={() => {
+                        window.open(
+                          "https://api-cow.herokuapp.com/api/download/all",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Download All Images
+                    </button>
                   </Col>
                   <Col>
                     <button
