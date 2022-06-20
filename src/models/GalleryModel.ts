@@ -10,6 +10,7 @@ export interface GalleryResponse {
   tel: string;
   type: string;
   image: string;
+  breed: string;
 }
 
 export interface GalleryInsert {
@@ -20,6 +21,7 @@ export interface GalleryInsert {
   tel: string;
   type: string;
   image: string;
+  breed: string;
 }
 
 export interface ImageGallery {
@@ -34,4 +36,5 @@ export default interface GalleryDetailResponse {
   tel: string;
   type: string;
   image: string;
+  breed: string;
 }

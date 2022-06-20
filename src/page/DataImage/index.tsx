@@ -4,7 +4,7 @@ import GalleryService from "../../services/GalleryService";
 import { Form, Spinner } from "react-bootstrap";
 import Button from "../../../node_modules/@restart/ui/esm/Button";
 import { GalleryInsert } from "../../models/GalleryModel";
-import { ListType } from "../../enum/ListTypeCow";
+import { ListBreedType, ListType } from "../../enum/ListTypeCow";
 import { format } from "date-fns";
 import Modals from "../../components/Modal";
 
@@ -14,6 +14,7 @@ export default function DataImage() {
   const [fullName, setFullName] = useState("");
   const [tel, setTel] = useState("");
   const [typeCow, setTypeCow] = useState("");
+  const [breedCow, setBreedCow] = useState("");
   const [validated, setValidated] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -38,6 +39,7 @@ export default function DataImage() {
       tel !== "" &&
       typeCow !== "" &&
       selectedImage !== undefined &&
+      selectedImage !== "" &&
       captcha
     ) {
       var date = new Date();
@@ -57,6 +59,7 @@ export default function DataImage() {
               tel: tel,
               type: typeCow,
               image: url.data.link,
+              breed: breedCow,
             };
             await GalleryService.addGallery(data)
               .then(() => {
@@ -77,6 +80,7 @@ export default function DataImage() {
     setFullName("");
     setTel("");
     setTypeCow("");
+    setBreedCow("");
     setSelectedImage(undefined);
     setValidated(false);
     setModalShow(false);
@@ -117,22 +121,22 @@ export default function DataImage() {
 
   const breedSelect = [
     {
-      value: ListType.NOSE,
+      value: ListBreedType.THAI,
     },
     {
-      value: ListType.LEFTSIDE,
+      value: ListBreedType.LEFTSIDE,
     },
     {
-      value: ListType.RIGHTSIDE,
+      value: ListBreedType.RIGHTSIDE,
     },
     {
-      value: ListType.HAUNCH,
+      value: ListBreedType.HAUNCH,
     },
     {
-      value: ListType.STOOL,
+      value: ListBreedType.STOOL,
     },
     {
-      value: ListType.FOOT,
+      value: ListBreedType.FOOT,
     },
   ];
 
@@ -201,8 +205,8 @@ export default function DataImage() {
                           <Form.Control
                             as="select"
                             required
-                            onChange={(e) => setTypeCow(e.target.value)}
-                            value={typeCow}
+                            onChange={(e) => setBreedCow(e.target.value)}
+                            value={breedCow}
                           >
                             <option value="">เลือกพันธุ์วัว</option>
                             {breedSelect.map((breed, index) => {
@@ -214,7 +218,7 @@ export default function DataImage() {
                             })}
                           </Form.Control>
                           <div className="invalid-feedback ml-6 pl-2">
-                            กรุณาเลือกประเภท
+                            กรุณาเลือกพันธุ์วัว
                           </div>
                         </Form.Group>
                       </div>
