@@ -8,6 +8,7 @@ import ContactPage from "./page/Contact/ContactPage";
 import Person from "./page/Person";
 import HistoryLearning from "./page/history-learning";
 import LoginPage from "./page/Login";
+import Admin from "./page/Admin";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/data-image" element={<DataImage />}></Route>
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/admin" element={<Admin />}></Route>
             <Route
               path="/history-learning"
               element={<HistoryLearning />}

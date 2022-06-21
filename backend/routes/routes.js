@@ -17,7 +17,10 @@ const {
   uploadImageGallery,
   getDownloadImages,
   getDownloadImagesByNo,
-  deleteGallery
+  deleteGallery,
+  addreport,
+  getreport,
+  deleteReport
 } = require('../controllers/galleryController')
 
 const router = express.Router()
@@ -31,6 +34,11 @@ router.get('/gallery/:id', getAccount)
 router.put('/gallery/:id', updateAccount)
 router.delete('/gallery/:id', deleteAccount)
 router.post('/gallery/uploadimage', multer.single('img'), uploadImageGallery)
+
+// Report Image
+router.post('/report', addreport)
+router.get('/report', getreport)
+router.delete('/report/:id', deleteReport)
 
 // download image
 router.get('/download/all', getDownloadImages)

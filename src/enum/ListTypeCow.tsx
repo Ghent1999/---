@@ -15,3 +15,7 @@ export enum ListBreedType {
   STOOL = "อุจระ",
   FOOT = "รอยเท้า",
 }
+
+export enum ListAdmin {
+  REPORT = "แจ้งรายงานรูปภาพ",
+}

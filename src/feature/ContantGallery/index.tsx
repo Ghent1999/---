@@ -19,7 +19,6 @@ export default function ContentGallery({
       <div className="row">
         {type.map((item: GalleryDetailResponse, index: number) => {
           if (item.type === tab) {
-            console.log(item.breed);
             if (item.breed === breed) {
               return (
                 <Card

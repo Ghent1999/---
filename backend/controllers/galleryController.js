@@ -283,6 +283,61 @@ const getDownloadImagesByNo = async (req, res, next) => {
   }
 }
 
+const addreport = async (req, res, next) => {
+  try {
+    const data = req.body
+    await firestore
+      .collection('report')
+      .doc()
+      .set(data)
+    res.status(200).send(true)
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
+}
+
+const getreport = async (req, res, next) => {
+  try {
+    const gallery = await firestore.collection('report')
+    const data = await gallery.get()
+    const dataCowArray = []
+    if (data.empty) {
+      res.status(404).send('ไม่พบข้อมูลใด')
+    } else {
+      data.forEach(doc => {
+        const report = {
+          token: doc.id,
+          no: doc.data().no,
+          create_at: doc.data().create_at,
+          full_name: doc.data().full_name,
+          image: doc.data().image,
+          tel: doc.data().tel,
+          type: doc.data().type,
+          breed: doc.data().breed,
+          token_gallery: doc.data().token_gallery
+        }
+        dataCowArray.push(report)
+      })
+      res.status(200).send({ data: dataCowArray })
+    }
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
+}
+
+const deleteReport = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    await firestore
+      .collection('report')
+      .doc(id)
+      .delete()
+    res.send('ลบสำเร็จ')
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
+}
+
 module.exports = {
   addGallery,
   getAllGallery,
@@ -294,5 +349,8 @@ module.exports = {
   uploadImageGallery,
   getDownloadImages,
   getDownloadImagesByNo,
-  deleteGallery
+  deleteGallery,
+  addreport,
+  getreport,
+  deleteReport
 }

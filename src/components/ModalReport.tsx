@@ -17,6 +17,29 @@ export default function ModalsReport({
   onConfirm,
   confirmText,
 }: ModalsReportProps) {
+  // const reportSubmit = async (event: any) => {
+  //   // setLoading(true);
+  //   const data: ReportInsert = {
+  //     no: project.no,
+  //     create_at: project.create_at,
+  //     full_name_owner: project.full_name_owner,
+  //     full_name: project.full_name,
+  //     tel: project.tel,
+  //     type: project.type,
+  //     image: project.image,
+  //     breed: project.breed,
+  //     token_gallery: project.id,
+  //   };
+  //   await GalleryService.addReport(data)
+  //     .then(() => {
+  //       setModalShow(true);
+  //       // setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
   return (
     <Modal
       show={show}

@@ -1,4 +1,5 @@
 export default interface GalleryModel {
+  full_name_owner: string;
   data: GalleryResponse[];
 }
 
