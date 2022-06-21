@@ -147,6 +147,19 @@ const getAllGalleryLast = async (req, res, next) => {
   }
 }
 
+const deleteGallery = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    await firestore
+      .collection('gallery')
+      .doc(id)
+      .delete()
+    res.send('ลบสำเร็จ')
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
+}
+
 const addGallery = async (req, res, next) => {
   try {
     const data = req.body
@@ -280,5 +293,6 @@ module.exports = {
   deleteAccount,
   uploadImageGallery,
   getDownloadImages,
-  getDownloadImagesByNo
+  getDownloadImagesByNo,
+  deleteGallery
 }

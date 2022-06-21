@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Col, Dropdown, Form, Row, Tab, Tabs } from "react-bootstrap";
 import ModalsReport from "../../components/ModalReport";
-import { ListType } from "../../enum/ListTypeCow";
+import { ListBreedType, ListType } from "../../enum/ListTypeCow";
 import ContentGallery from "../../feature/ContantGallery";
 import TutorialDataService from "../../services/GalleryService";
 import "./gallery.css";
@@ -27,22 +27,22 @@ export default function Gallery() {
 
   const optionSelect = [
     {
-      value: ListType.NOSE,
+      value: ListBreedType.THAI,
     },
     {
-      value: ListType.LEFTSIDE,
+      value: ListBreedType.LEFTSIDE,
     },
     {
-      value: ListType.RIGHTSIDE,
+      value: ListBreedType.RIGHTSIDE,
     },
     {
-      value: ListType.HAUNCH,
+      value: ListBreedType.HAUNCH,
     },
     {
-      value: ListType.STOOL,
+      value: ListBreedType.STOOL,
     },
     {
-      value: ListType.FOOT,
+      value: ListBreedType.FOOT,
     },
   ];
 
@@ -109,6 +109,7 @@ export default function Gallery() {
                     tab={ListType.NOSE}
                     setModalShow={setModalShow}
                     type={dataArray}
+                    breed={typeCow}
                   />
                 </div>
               </div>
@@ -125,7 +126,7 @@ export default function Gallery() {
                   </Col>
                   <Col>
                     <button
-                      className="btn btn-primary btn-lg btn-block"
+                      className="btn btn-primary btn-lg"
                       onClick={() => {
                         window.open(
                           "https://api-cow.herokuapp.com/api/download/all",
@@ -137,17 +138,24 @@ export default function Gallery() {
                     </button>
                   </Col>
                   <Col>
-                    <button
-                      className="btn btn-primary btn-lg btn-block"
-                      onClick={() => {
-                        window.open(
-                          "https://api-cow.herokuapp.com/api/download/all",
-                          "_blank"
-                        );
-                      }}
-                    >
-                      Download All Images
-                    </button>
+                    <Form.Group>
+                      <Form.Control
+                        className="btn-primary btn-lg breed"
+                        as="select"
+                        required
+                        onChange={(e) => setTypeCow(e.target.value)}
+                        value={typeCow}
+                      >
+                        <option value="">ทั้งหมด</option>
+                        {optionSelect.map((option, index) => {
+                          return (
+                            <option value={option.value} key={index}>
+                              {option.value}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <div className="row">
@@ -155,6 +163,7 @@ export default function Gallery() {
                     tab={ListType.LEFTSIDE}
                     setModalShow={setModalShow}
                     type={dataArray}
+                    breed={typeCow}
                   />
                 </div>
               </div>
@@ -171,7 +180,7 @@ export default function Gallery() {
                   </Col>
                   <Col>
                     <button
-                      className="btn btn-primary btn-lg btn-block"
+                      className="btn btn-primary btn-lg"
                       onClick={() => {
                         window.open(
                           "https://api-cow.herokuapp.com/api/download/all",
@@ -183,17 +192,24 @@ export default function Gallery() {
                     </button>
                   </Col>
                   <Col>
-                    <button
-                      className="btn btn-primary btn-lg btn-block"
-                      onClick={() => {
-                        window.open(
-                          "https://api-cow.herokuapp.com/api/download/all",
-                          "_blank"
-                        );
-                      }}
-                    >
-                      Download All Images
-                    </button>
+                    <Form.Group>
+                      <Form.Control
+                        className="btn-primary btn-lg breed"
+                        as="select"
+                        required
+                        onChange={(e) => setTypeCow(e.target.value)}
+                        value={typeCow}
+                      >
+                        <option value="">ทั้งหมด</option>
+                        {optionSelect.map((option, index) => {
+                          return (
+                            <option value={option.value} key={index}>
+                              {option.value}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <div className="row">
@@ -201,6 +217,7 @@ export default function Gallery() {
                     tab={ListType.RIGHTSIDE}
                     setModalShow={setModalShow}
                     type={dataArray}
+                    breed={typeCow}
                   />
                 </div>
               </div>
@@ -217,7 +234,7 @@ export default function Gallery() {
                   </Col>
                   <Col>
                     <button
-                      className="btn btn-primary btn-lg btn-block"
+                      className="btn btn-primary btn-lg"
                       onClick={() => {
                         window.open(
                           "https://api-cow.herokuapp.com/api/download/all",
@@ -229,17 +246,24 @@ export default function Gallery() {
                     </button>
                   </Col>
                   <Col>
-                    <button
-                      className="btn btn-primary btn-lg btn-block"
-                      onClick={() => {
-                        window.open(
-                          "https://api-cow.herokuapp.com/api/download/all",
-                          "_blank"
-                        );
-                      }}
-                    >
-                      Download All Images
-                    </button>
+                    <Form.Group>
+                      <Form.Control
+                        className="btn-primary btn-lg breed"
+                        as="select"
+                        required
+                        onChange={(e) => setTypeCow(e.target.value)}
+                        value={typeCow}
+                      >
+                        <option value="">ทั้งหมด</option>
+                        {optionSelect.map((option, index) => {
+                          return (
+                            <option value={option.value} key={index}>
+                              {option.value}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <div className="row">
@@ -247,6 +271,7 @@ export default function Gallery() {
                     tab={ListType.HAUNCH}
                     setModalShow={setModalShow}
                     type={dataArray}
+                    breed={typeCow}
                   />
                 </div>
               </div>
@@ -263,7 +288,7 @@ export default function Gallery() {
                   </Col>
                   <Col>
                     <button
-                      className="btn btn-primary btn-lg btn-block"
+                      className="btn btn-primary btn-lg"
                       onClick={() => {
                         window.open(
                           "https://api-cow.herokuapp.com/api/download/all",
@@ -275,17 +300,24 @@ export default function Gallery() {
                     </button>
                   </Col>
                   <Col>
-                    <button
-                      className="btn btn-primary btn-lg btn-block"
-                      onClick={() => {
-                        window.open(
-                          "https://api-cow.herokuapp.com/api/download/all",
-                          "_blank"
-                        );
-                      }}
-                    >
-                      Download All Images
-                    </button>
+                    <Form.Group>
+                      <Form.Control
+                        className="btn-primary btn-lg breed"
+                        as="select"
+                        required
+                        onChange={(e) => setTypeCow(e.target.value)}
+                        value={typeCow}
+                      >
+                        <option value="">ทั้งหมด</option>
+                        {optionSelect.map((option, index) => {
+                          return (
+                            <option value={option.value} key={index}>
+                              {option.value}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <div className="row">
@@ -293,6 +325,7 @@ export default function Gallery() {
                     tab={ListType.STOOL}
                     setModalShow={setModalShow}
                     type={dataArray}
+                    breed={typeCow}
                   />
                 </div>
               </div>
@@ -309,7 +342,7 @@ export default function Gallery() {
                   </Col>
                   <Col>
                     <button
-                      className="btn btn-primary btn-lg btn-block"
+                      className="btn btn-primary btn-lg"
                       onClick={() => {
                         window.open(
                           "https://api-cow.herokuapp.com/api/download/all",
@@ -321,17 +354,24 @@ export default function Gallery() {
                     </button>
                   </Col>
                   <Col>
-                    <button
-                      className="btn btn-primary btn-lg btn-block"
-                      onClick={() => {
-                        window.open(
-                          "https://api-cow.herokuapp.com/api/download/all",
-                          "_blank"
-                        );
-                      }}
-                    >
-                      Download All Images
-                    </button>
+                    <Form.Group>
+                      <Form.Control
+                        className="btn-primary btn-lg breed"
+                        as="select"
+                        required
+                        onChange={(e) => setTypeCow(e.target.value)}
+                        value={typeCow}
+                      >
+                        <option value="">ทั้งหมด</option>
+                        {optionSelect.map((option, index) => {
+                          return (
+                            <option value={option.value} key={index}>
+                              {option.value}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <div className="row">
@@ -339,6 +379,7 @@ export default function Gallery() {
                     tab={ListType.FOOT}
                     setModalShow={setModalShow}
                     type={dataArray}
+                    breed={typeCow}
                   />
                 </div>
               </div>
