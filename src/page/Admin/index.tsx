@@ -37,22 +37,28 @@ export default function Admin() {
 
   const breedSelect = [
     {
-      value: ListBreedType.THAI,
+      value: ListBreedType.NATIVE,
     },
     {
-      value: ListBreedType.LEFTSIDE,
+      value: ListBreedType.BRAHMAN,
     },
     {
-      value: ListBreedType.RIGHTSIDE,
+      value: ListBreedType.CHAROLAIS,
     },
     {
-      value: ListBreedType.HAUNCH,
+      value: ListBreedType.SIMMENTAL,
     },
     {
-      value: ListBreedType.STOOL,
+      value: ListBreedType.DRY,
     },
     {
-      value: ListBreedType.FOOT,
+      value: ListBreedType.KAMPHAENGSAEN,
+    },
+    {
+      value: ListBreedType.KABINBURI,
+    },
+    {
+      value: ListBreedType.INDUS,
     },
   ];
 

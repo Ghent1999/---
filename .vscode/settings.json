@@ -42,6 +42,7 @@
     "firestore",
     "LEFTSIDE",
     "RIGHTSIDE",
-    "scroller"
+    "scroller",
+    "selectdata"
   ]
 }

@@ -1,17 +1,40 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Button from "react-bootstrap/esm/Button";
 import ReactCardFlip from "react-card-flip";
 import "../feature/ContantGallery/contantgallery.css";
 import GalleryDetailResponse from "../models/GalleryModel";
+import { ReportInsert } from "../models/ReportModel";
 import Modals from "./Modal";
 
 interface DataGalleryProps {
   project: GalleryDetailResponse;
   setModalShow: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectData: Dispatch<ReportInsert>;
 }
 
-export default function Card({ project, setModalShow }: DataGalleryProps) {
+export default function Card({
+  project,
+  setModalShow,
+  setSelectData,
+}: DataGalleryProps) {
   const [isFlipped, setIsFlipped] = React.useState(false);
+
+  const data: ReportInsert = {
+    no: project.no,
+    create_at: project.create_at,
+    full_name_owner: project.full_name_owner,
+    full_name: project.full_name,
+    tel: project.tel,
+    type: project.type,
+    image: project.image,
+    breed: project.breed,
+    token_gallery: project.id,
+  };
+
+  function SelectData() {
+    setSelectData(data);
+    setModalShow(true);
+  }
 
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
@@ -57,9 +80,7 @@ export default function Card({ project, setModalShow }: DataGalleryProps) {
         <div className="font">
           <button
             className="btn btn-danger btn-lg btn-block"
-            onClick={() => {
-              setModalShow(true);
-            }}
+            onClick={SelectData}
           >
             รายงานรูปภาพ
           </button>

@@ -2,17 +2,21 @@ import GalleryDetailResponse from "../../models/GalleryModel";
 import GalleryModel from "../../models/GalleryModel";
 import "./contantgallery.css";
 import Card from "../../components/CardCow";
+import { Dispatch, SetStateAction } from "react";
+import { ReportInsert } from "../../models/ReportModel";
 interface ContentGalleryProps {
   tab: string;
   type: GalleryModel[];
   setModalShow: React.Dispatch<React.SetStateAction<boolean>>;
   breed: string;
+  setSelectData: Dispatch<ReportInsert>;
 }
 export default function ContentGallery({
   tab,
   type,
   setModalShow,
   breed,
+  setSelectData,
 }: ContentGalleryProps) {
   const Projects = () => {
     return (
@@ -24,6 +28,7 @@ export default function ContentGallery({
                 <Card
                   project={item}
                   setModalShow={setModalShow}
+                  setSelectData={setSelectData}
                   key={`card-${index}`}
                 />
               );
@@ -32,6 +37,7 @@ export default function ContentGallery({
                 <Card
                   project={item}
                   setModalShow={setModalShow}
+                  setSelectData={setSelectData}
                   key={`card-${index}`}
                 />
               );

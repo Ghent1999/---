@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
+  min-height: 1000px;
 }
 
 .form-holder .form-content {
@@ -38,6 +38,7 @@ body {
   -webkit-align-items: center;
   align-items: center;
   padding: 60px;
+  padding-bottom: 200px;
 }
 
 .form-content .form-items {
