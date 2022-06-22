@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Col, Dropdown, Form, Row, Spinner, Tab, Tabs } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col, Form, Row, Spinner, Tab, Tabs } from "react-bootstrap";
 import Modals from "../../components/Modal";
 import ModalsReport from "../../components/ModalReport";
 import { ListBreedType, ListType } from "../../enum/ListTypeCow";

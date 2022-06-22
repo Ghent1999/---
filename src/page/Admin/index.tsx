@@ -4,8 +4,9 @@ import { Col, Form, Row, Spinner, Tab, Tabs } from "react-bootstrap";
 import { ListAdmin, ListBreedType, ListType } from "../../enum/ListTypeCow";
 import TutorialDataService from "../../services/GalleryService";
 import ContentReport from "../../feature/ContantReport";
-import ModalsReport from "../../components/ModalReport";
 import Modals from "../../components/Modal";
+import LoginServices from "../../services/LoginService";
+import { useNavigate } from "react-router-dom";
 
 export default function Admin() {
   const [dataArray, setDataArray] = useState([]);
@@ -13,10 +14,27 @@ export default function Admin() {
   const [typeCow, setTypeCow] = useState("ทั้งหมด");
   const [breedCow, setBreedCow] = useState("ทั้งหมด");
   const [loading, setLoading] = useState(false);
+  const username = window.sessionStorage.getItem("username") ?? "";
+  const password = window.sessionStorage.getItem("password") ?? "";
+
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const verifyLogin = () => {
+      LoginServices.getLogin(username, password).then(
+        (res) => {
+          if (!res) {
+            navigate("/login");
+          }
+        },
+        (err) => {
+          navigate("/login");
+        }
+      );
+    };
+    verifyLogin();
     GetDataGallery();
-  }, []);
+  }, [navigate, password, username]);
 
   function GetDataGallery() {
     TutorialDataService.getAllReport()

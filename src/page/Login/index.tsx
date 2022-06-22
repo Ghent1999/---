@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import LoginServices from "../../services/LoginService";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -9,15 +10,20 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (
-      username === process.env.REACT_APP_USERNAME &&
-      password === process.env.REACT_APP_PASSWORD
-    ) {
-      navigate("/admin");
-    } else {
-      alert("Username or password is wrong");
-    }
+    LoginServices.getLogin(username, password).then((res) => {
+      if (res) {
+        window.sessionStorage.setItem("username", username);
+        window.sessionStorage.setItem("password", password);
+        navigate("/admin");
+      } else {
+        alert("Username or password is wrong");
+      }
+    });
   };
+
+  useEffect(() => {
+    window.sessionStorage.clear();
+  });
 
   return (
     <div className="form-body">

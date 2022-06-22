@@ -1,6 +1,28 @@
+import { useEffect, useState } from "react";
 import MenuList, { MenuListModel } from "../models/MenuModel";
+import LoginServices from "../services/LoginService";
 
 export default function NavBar() {
+  const username = window.sessionStorage.getItem("username") ?? "";
+  const password = window.sessionStorage.getItem("password") ?? "";
+  const [menuList, setMenuList] = useState<MenuListModel[]>(MenuList);
+  useEffect(() => {
+    const resultMenu = MenuList;
+    const verifyLogin = () => {
+      LoginServices.getLogin(username, password).then(
+        (res) => {
+          if (res.status) {
+            resultMenu[4].label = "logout";
+          }
+        },
+        (err) => {
+          setMenuList(resultMenu);
+        }
+      );
+    };
+    verifyLogin();
+  }, [password, username]);
+
   return (
     <header id="header">
       <div className="container">
@@ -44,7 +66,7 @@ export default function NavBar() {
                       <i className="mdi mdi-close" />
                     </button>
                   </li>
-                  {MenuList.map((item: MenuListModel, index) => (
+                  {menuList.map((item: MenuListModel, index) => (
                     <li className="nav-item" key={index}>
                       <a className="nav-link" href={item.path}>
                         {item.label}

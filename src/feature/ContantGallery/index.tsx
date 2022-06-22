@@ -2,7 +2,7 @@ import GalleryDetailResponse from "../../models/GalleryModel";
 import GalleryModel from "../../models/GalleryModel";
 import "./contantgallery.css";
 import Card from "../../components/CardCow";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch } from "react";
 import { ReportInsert } from "../../models/ReportModel";
 interface ContentGalleryProps {
   tab: string;
