@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Form, Row, Spinner, Tab, Tabs } from "react-bootstrap";
 import Modals from "../../components/Modal";
 import ModalsReport from "../../components/ModalReport";
+import NavBar from "../../components/NavBar";
 import { ListBreedType, ListType } from "../../enum/ListTypeCow";
 import ContentGallery from "../../feature/ContantGallery";
 import { ReportInsert } from "../../models/ReportModel";
@@ -63,6 +64,7 @@ export default function Gallery() {
 
   return (
     <>
+      <NavBar />
       {!loading ? (
         <>
           <Modals

@@ -7,6 +7,7 @@ import ContentReport from "../../feature/ContantReport";
 import Modals from "../../components/Modal";
 import LoginServices from "../../services/LoginService";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../../components/NavBar";
 
 export default function Admin() {
   const [dataArray, setDataArray] = useState([]);
@@ -103,6 +104,7 @@ export default function Admin() {
 
   return (
     <>
+      <NavBar />
       {!loading ? (
         <>
           <Modals

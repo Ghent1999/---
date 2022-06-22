@@ -6,22 +6,26 @@ export default function NavBar() {
   const username = window.sessionStorage.getItem("username") ?? "";
   const password = window.sessionStorage.getItem("password") ?? "";
   const [menuList, setMenuList] = useState<MenuListModel[]>(MenuList);
+  let path = window.location.pathname;
+
   useEffect(() => {
-    const resultMenu = MenuList;
-    const verifyLogin = () => {
-      LoginServices.getLogin(username, password).then(
-        (res) => {
-          if (res.status) {
-            resultMenu[4].label = "logout";
+    if (path === "/admin") {
+      const verifyLogin = () => {
+        LoginServices.getLogin(username, password).then(
+          (res) => {
+            if (res.status) {
+              menuList[4].label = "logout";
+            }
+          },
+          (err) => {
+            setMenuList(menuList);
           }
-        },
-        (err) => {
-          setMenuList(resultMenu);
-        }
-      );
-    };
-    verifyLogin();
-  }, [password, username]);
+        );
+      };
+
+      verifyLogin();
+    }
+  }, [menuList, password, path, username]);
 
   return (
     <header id="header">

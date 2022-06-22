@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="container-scroller">
       <div className="main-panel">
-        <NavBar />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />}></Route>

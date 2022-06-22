@@ -7,6 +7,7 @@ import { GalleryInsert } from "../../models/GalleryModel";
 import { ListBreedType, ListType } from "../../enum/ListTypeCow";
 import { format } from "date-fns";
 import Modals from "../../components/Modal";
+import NavBar from "../../components/NavBar";
 
 export default function DataImage() {
   const [selectedImage, setSelectedImage] = useState<any>();
@@ -148,6 +149,7 @@ export default function DataImage() {
 
   return (
     <>
+      <NavBar />
       {!loading ? (
         <>
           <Modals

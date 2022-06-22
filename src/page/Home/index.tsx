@@ -10,6 +10,7 @@ import { ReportInsert } from "../../models/ReportModel";
 import Modals from "../../components/Modal";
 import ModalsReport from "../../components/ModalReport";
 import { Spinner } from "react-bootstrap";
+import NavBar from "../../components/NavBar";
 
 export default function HomePage() {
   const [dataArray, setDataArray] = useState([]);
@@ -69,6 +70,7 @@ export default function HomePage() {
 
   return (
     <>
+      <NavBar />
       {!loading ? (
         <>
           <Modals
